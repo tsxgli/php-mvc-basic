@@ -6,6 +6,10 @@ class SwitchRouter {
 
         switch($uri) {
             case '': 
+                require __DIR__ . '/controllers/logincontroller.php';
+                $controller = new LoginController();
+                $controller->index();
+                break;
             case 'home': 
             case 'home/index': 
                 require __DIR__ . '/controllers/homecontroller.php';

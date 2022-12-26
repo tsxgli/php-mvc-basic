@@ -18,7 +18,7 @@ class PatternRouter
         $explodedUri = explode('/', $uri);
 
         if (!isset($explodedUri[0]) || empty($explodedUri[0])) {
-            $explodedUri[0] = 'home';
+            $explodedUri[0] = 'login';
         }
         $controllerName = $explodedUri[0] . "controller";
 

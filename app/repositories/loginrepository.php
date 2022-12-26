@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/repository.php';
-require __DIR__ . '/../models/login.php';
+require __DIR__ . '/../views/login/login.php';
 
 class LoginRepository extends Repository {
 
@@ -19,18 +19,25 @@ class LoginRepository extends Repository {
             echo $e;
         }
     }
-     function validateUser(string $email, string $password)
-    {
-        $stmt=$this->connection->prepare("Select * from Users where Email = :email and Password = :password");
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
 
-        $stmt->execute();
-        foreach ($stmt as $row) {
-            if (($row['email'] == $email) && ($row['Password'] == $password)) {
-                return true;
-            }
+    function validateUser(string $email, string $password)
+{
+    $stmt = $this->connection->prepare("SELECT * FROM Users WHERE Email = :email AND Password = :password");
+
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':password', $password);
+
+    $stmt->execute();
+
+    $row = $stmt->fetch();
+    $hashedPassword = $row['password'];
+
+    if ($stmt->rowCount() > 0) {
+        if (password_verify($password, $hashedPassword)) {
+            return true;
         }
-        return false;
     }
+    return false;
+}
+
 }

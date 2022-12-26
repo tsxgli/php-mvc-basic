@@ -12,6 +12,7 @@ foreach ($model as $article) {
 <p><i><?= $article->getPosted_at() ?></i></p>
 <p><?= $article->getContent() ?></p>
 
+
 <?php
 }
 include __DIR__ . '/../footer.php';

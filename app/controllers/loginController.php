@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../services/articleservice.php';
+require __DIR__ . '/../services/loginservice.php';
 
 class LoginController
 {
@@ -12,9 +12,13 @@ class LoginController
 
     public function index()
     {
-        $model = $this->loginService->getAll();
+        require __DIR__ . '/../views/login/login.php';
+    }
 
-        require __DIR__ . '/../views/article/index.php';
+    public function validateUser(string $username, string $password){
+        $model = $this->loginService->validateUser($username,$password);
+
+        require __DIR__ . '/../views/login/login.php';
     }
 }
 
