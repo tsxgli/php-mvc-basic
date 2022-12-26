@@ -23,7 +23,6 @@ class SwitchRouter {
             http_response_code(404);
             break;
         }
-
     }
 
     private function stripParameters($uri) {

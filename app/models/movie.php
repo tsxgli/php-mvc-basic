@@ -6,6 +6,7 @@ class Movie{
     private string $description;
     private string $genre;
     private string $dateProduced;
+	private string $price;
 
 
     public function __construct(){
@@ -73,6 +74,22 @@ class Movie{
 	 */
 	public function setDateProduced(string $dateProduced): self {
 		$this->dateProduced = $dateProduced;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrice(): string {
+		return $this->price;
+	}
+	
+	/**
+	 * @param string $price 
+	 * @return self
+	 */
+	public function setPrice(string $price): self {
+		$this->price = $price;
 		return $this;
 	}
 }

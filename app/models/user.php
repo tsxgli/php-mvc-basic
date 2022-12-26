@@ -1,6 +1,6 @@
 <?php
 class User{
-    
+	private int $id;
     private string $firstName;
     private string $lastName;
     private string $postCode;
@@ -8,7 +8,7 @@ class User{
     private int $age;
     private string $email;
     private int $password;
-    private boolean $isAdmin;
+    private bool $isAdmin;
 
 
     
