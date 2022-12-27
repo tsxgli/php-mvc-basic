@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/repository.php';
-require __DIR__ . '/../views/register/register.php';
+require __DIR__ . '/../views/register/index.php';
 
 class RegisterRepository extends Repository
 {

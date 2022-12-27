@@ -12,7 +12,7 @@ class RegisterController
 
     public function index()
     {
-        require __DIR__ . '/../views/register/register.php';
+        require __DIR__ . '/../views/register/index.php';
     }
 
   
