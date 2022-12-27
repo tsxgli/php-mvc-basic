@@ -5,7 +5,7 @@ class User{
     private string $lastName;
     private string $postCode;
     private string $address; 
-    private int $age;
+    private string $birthdate;
     private string $email;
     private int $password;
     private bool $isAdmin;
@@ -80,16 +80,16 @@ class User{
 	/**
 	 * @return int
 	 */
-	public function getAge(): int {
-		return $this->age;
+	public function getBirthdate(): string {
+		return $this->birthdate;
 	}
 	
 	/**
 	 * @param int $age 
 	 * @return self
 	 */
-	public function setAge(int $age): self {
-		$this->age = $age;
+	public function setBirthdate(string $birthdate): self {
+		$this->birthdate = $birthdate;
 		return $this;
 	}
 
@@ -122,6 +122,22 @@ class User{
 	 */
 	public function setPassword(int $password): self {
 		$this->password = $password;
+		return $this;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getIsAdmin(): bool {
+		return $this->isAdmin;
+	}
+	
+	/**
+	 * @param bool $isAdmin 
+	 * @return self
+	 */
+	public function setIsAdmin(bool $isAdmin): self {
+		$this->isAdmin = $isAdmin;
 		return $this;
 	}
 }
