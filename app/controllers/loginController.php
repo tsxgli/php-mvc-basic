@@ -15,23 +15,30 @@ class LoginController
     public function index()
     {
         require __DIR__ . '/../views/login/index.php';
-        echo $_POST['password'];
+        echo "Y";
     }
 
     public function validateUser(string $email, string $password){
         require __DIR__ . '/../views/login/index.php';
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        if(isset($_POST['loginButton'])){
-            $email = htmlspecialchars($_POST['email']);
-            $password = htmlspecialchars($_POST['password']);
-    
-            $model = $this->loginService->validateUser($email,$password);
-            if ($model) {
-                header("Location: /home");
-                echo "yeah";
-            }
-            else{
-                echo "wrong";
+            $email = $_POST['emailInput'];
+            $password = $_POST('passwordInput');
+
+
+            if (isset($_POST['loginButton'])) {
+
+
+                $model = $this->loginService->validateUser($email, $password);
+                if ($model) {
+                    header("Location: /home");
+                    echo "yeah";
+                } else {
+                    echo "wrong";
+                }
             }
         }
        

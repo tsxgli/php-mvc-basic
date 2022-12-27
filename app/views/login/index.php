@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +8,7 @@
 </head>
 
 <body>
-    <form action= "/login"method="POST">
+    <form  method="POST">
         <section class="vh-100 gradient-custom">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -23,7 +22,7 @@
                                     <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="email" class="form-control form-control-lg" />
+                                        <input type="email" name= "emailInput"id="email" class="form-control form-control-lg" />
                                         <label class="form-label" for="email">Email</label>
                                     </div>
 
@@ -31,7 +30,7 @@
                                     <div class="form-group">
                                                 <div class="input-group">
                                                     <input type="password" class="form-control form-control-lg" id="password"
-                                                        name="password">
+                                                        name="passwordInput">
                                                     <div class="input-group-append">
                                                         <button type="button" class="btn btn-secondary ml-2"
                                                             id="passwordToggleButton">
@@ -44,7 +43,7 @@
                                             <script>
                                             document.getElementById('passwordToggleButton').addEventListener('click',
                                                 function() {
-                                                    var passwordInput = document.getElementById('passwordInput');
+                                                    var passwordInput = document.getElementById('password');
                                                     var passwordToggleButton = this;
 
                                                     if (passwordInput.type === 'password') {
