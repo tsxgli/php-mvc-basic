@@ -7,8 +7,10 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
+
+
 <body>
-    <form  method="POST">
+    <form method="POST" action="/login/validateUser">
         <section class="vh-100 gradient-custom">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -59,7 +61,7 @@
                                     <p class="small mb-5 pb-lg-2">
                                         <a class="text-white-50" href="#!">Forgot password?</a>
                                     </p>
-                                    <button class="btn btn-outline-light btn-lg px-5" name="loginButton" type="submit">Login</button>
+                                    <button class="btn btn-outline-light btn-lg px-5" name="loginButton"id="loginButton" type="submit">Login</button>
                                 </div>
 
                                 <div>
