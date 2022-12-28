@@ -28,7 +28,7 @@
                                             <div class="form-outline mb-4">
                                                 <div class="form-outline">
                                                     <input type="text" id="form3Example1m"
-                                                        class="form-control form-control-lg" />
+                                                        class="form-control form-control-lg" name="firstname" />
                                                     <label class="form-label" for="form3Example1m">First name</label>
                                                 </div>
                                             </div>
@@ -38,7 +38,7 @@
                                                 <div class="form-outline mb-4">
                                                     <div class="form-outline">
                                                         <input type="text" id="form3Example1m1"
-                                                            class="form-control form-control-lg" />
+                                                            class="form-control form-control-lg" name="lastname" />
                                                         <label class="form-label" for="form3Example1m1">Last
                                                             name</label>
                                                     </div>
@@ -48,19 +48,24 @@
 
                                             <div class="form-outline mb-4">
                                                 <input type="text" id="form3Example8"
-                                                    class="form-control form-control-lg" />
+                                                    class="form-control form-control-lg" name="postcode" />
                                                 <label class="form-label" for="form3Example8">Post Code</label>
                                             </div>
                                             <div class="form-outline mb-4">
                                                 <input type="text" id="form3Example8"
-                                                    class="form-control form-control-lg" />
+                                                    class="form-control form-control-lg" name="address" />
                                                 <label class="form-label" for="form3Example8">Address</label>
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="emailInput"
-                                                    class="form-control form-control-lg" />
+                                                <input type="text" id="emailInput" class="form-control form-control-lg"
+                                                    name="email" />
                                                 <label class="form-label" for="form3Example90">Email</label>
+                                            </div>
+                                            <div class="form-outline mb-4">
+                                                <input type="date" id="birthdateInput"
+                                                    class="form-control form-control-lg" name="birthdate" />
+                                                <label class="form-label" for="form3Example90">BirthDate</label>
                                             </div>
 
 
@@ -68,8 +73,8 @@
 
                                             <div class="form-group">
                                                 <div class="input-group">
-                                                    <input type="password" class="form-control form-control-lg" id="passwordInput"
-                                                        name="password">
+                                                    <input type="password" class="form-control form-control-lg"
+                                                        id="passwordInput" name="password">
                                                     <div class="input-group-append">
                                                         <button type="button" class="btn btn-secondary"
                                                             id="passwordToggleButton">
@@ -96,25 +101,11 @@
                                             </script>
                                             <!--End password field -->
 
-
-                                            <div class="form-outline mb-4">
-                                                <input type="text" id="form3Example99"
-                                                    class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example99">Course</label>
-                                            </div>
-
-                                            <div class="form-outline mb-4">
-                                                <input type="text" id="form3Example97"
-                                                    class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example97">Email ID</label>
-                                            </div>
-
                                             <div class="d-flex justify-content-end pt-3">
                                                 <a type="button" class="btn btn-light btn-lg" href="/login">Cancel</a>
-                                                <button type="button" class="btn btn-warning btn-lg ms-2">Submit
-                                                    form</button>
+                                                <button name="registerBtn" type="button"
+                                                    class="btn btn-warning btn-lg ms-2">Submit form</button>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -125,9 +116,6 @@
         </section>
 
     </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    < /body>
+</body>
 
-    <
-    /html>
+</html>

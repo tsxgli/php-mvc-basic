@@ -21,12 +21,15 @@ class SwitchRouter
                 break;
 
             case 'login':
-
                require __DIR__ . '/../controllers/logincontroller.php';
                 $controller = new LoginController();
                 $controller->validateUser();
                 break;
-
+            case 'register':
+                require __DIR__ . '/../controllers/registercontroller.php';
+                    $controller = new RegisterController();
+                    $controller->registerUser();
+                    break;
             default:
                 http_response_code(404);
                 break;

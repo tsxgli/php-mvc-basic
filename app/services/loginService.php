@@ -2,12 +2,17 @@
 require __DIR__ . '/../repositories/loginrepository.php';
 
 class LoginService {
+
+    private $repository;
+    function __construct()
+    {
+        $this->repository = new LoginRepository();
+  
+    }
     public function getAll() {
-        $repository = new LoginRepository();
-        return $repository->getAll();
+        return $this->repository->getAll();
     }
     public function validateUser(string $username,string $password) {
-        $repository = new LoginRepository();
-        return $repository->validateUser($username,$password);
+        return $this->repository->validateUser($username,$password);
     }
 }
