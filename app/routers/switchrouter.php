@@ -3,31 +3,30 @@ class SwitchRouter
 {
     public function route($uri)
     {
-
         $uri = $this->stripParameters($uri);
 
         switch ($uri) {
             case '':
             case 'home':
             case 'home/index':
-                require __DIR__ . '/controllers/homecontroller.php';
+                require __DIR__ . '/../controllers/homecontroller.php';
                 $controller = new HomeController();
                 $controller->index();
                 break;
 
             case 'home/about':
-                require __DIR__ . '/controllers/homecontroller.php';
-                echo "ueua";
+                require __DIR__ . '/../controllers/homecontroller.php';
                 $controller = new HomeController();
                 $controller->about();
                 break;
 
-            case 'login/':
-               require __DIR__ . '/controllers/logincontroller.php';
+            case 'login':
+
+               require __DIR__ . '/../controllers/logincontroller.php';
                 $controller = new LoginController();
-                
-                $controller->index();
+                $controller->validateUser();
                 break;
+
             default:
                 http_response_code(404);
                 break;
