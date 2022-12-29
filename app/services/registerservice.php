@@ -10,6 +10,7 @@ class RegisterService {
     }
     public function registerUser(User $user) {
         $this->repository->registerUser($user);
+      
     }
     
 }

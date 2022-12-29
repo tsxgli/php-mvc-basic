@@ -14,7 +14,7 @@ class ArticleController
     {
         $model = $this->articleService->getAll();
 
-        require __DIR__ . '/../views/article/index.php';
+       require __DIR__ . '/../views/article/index.php';
         
     }
 }

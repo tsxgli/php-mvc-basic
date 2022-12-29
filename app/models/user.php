@@ -7,7 +7,7 @@ class User{
     private string $address; 
     private string $birthdate;
     private string $email;
-    private int $password;
+    private string $password;
     private bool $isAdmin;
 
 
@@ -78,14 +78,14 @@ class User{
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
 	public function getBirthdate(): string {
 		return $this->birthdate;
 	}
 	
 	/**
-	 * @param int $age 
+	 * @param string $age 
 	 * @return self
 	 */
 	public function setBirthdate(string $birthdate): self {
@@ -110,17 +110,17 @@ class User{
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
-	public function getPassword(): int {
+	public function getPassword(): string {
 		return $this->password;
 	}
 	
 	/**
-	 * @param int $password 
+	 * @param string $password 
 	 * @return self
 	 */
-	public function setPassword(int $password): self {
+	public function setPassword(string $password): self {
 		$this->password = $password;
 		return $this;
 	}
