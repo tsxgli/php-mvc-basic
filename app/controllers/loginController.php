@@ -13,16 +13,14 @@ class LoginController
     public function validateUser()
     {
         if (isset($_POST['loginButton'])) {
- 
-            $email = $_POST['emailLogin'];
-            $password = $_POST['passwordLogin'];
+            $email = htmlspecialchars($_POST['emailLogin']);
+            $password = htmlspecialchars($_POST['passwordLogin']);
 
             $model = $this->loginService->validateUser($email, $password);
             if ($model) {
-
+                echo "<script>location.href='/home'</script>";
             } else {
-                echo $email;
-              echo "<script>location.href='/home'</script>";
+                echo "wrong password";
             }
         }
 

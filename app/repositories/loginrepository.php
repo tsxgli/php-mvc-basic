@@ -2,9 +2,11 @@
 require __DIR__ . '/repository.php';
 require __DIR__ . '/../views/login/index.php';
 
-class LoginRepository extends Repository {
-  
-    function getAll() {
+class LoginRepository extends Repository
+{
+
+    function getAll()
+    {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM User");
             $stmt->execute();
@@ -14,30 +16,26 @@ class LoginRepository extends Repository {
 
             return $articles;
 
-        } catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
     function validateUser(string $email, string $password)
-{
-    $stmt = $this->connection->prepare("SELECT * FROM Users WHERE Email = :email AND Password = :password");
-
-    $stmt->bindValue(':email', $email);
-    $stmt->bindValue(':password', $password);
-
-    $stmt->execute();
-
-    $row = $stmt->fetch();
-    $hashedPassword = $row['password'];
-
-    if ($stmt->rowCount() > 0) {
-        if (password_verify($password, $hashedPassword)) {
-            return true;
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM Users WHERE Email = :email");
+            $stmt->bindValue(':email', $email);
+            $stmt->execute();
+            $row = $stmt->fetch();
+        
+            if (password_verify($password, $row['password'])) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e;
         }
     }
-    return false;
-}
-
 }
