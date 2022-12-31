@@ -22,13 +22,16 @@ include __DIR__ . '/../header.php';
                     ?>
                 <div class="col-2">
                     <div class="card">
-                        <div class="card-body" style="height: 16rem;">
+                        <div class="card-body" >
                             <p> <?= $movie->getTitle() ?></p>
-                            <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>" class="img-fluid rounded-start" >
+                            <div class="card-body" style="height: 16rem;">
+                                <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
+                                    class="img-fluid ">
+                            </div>
                         </div>
-                        <div class="card-footer bg-light">
+                        <div class="card-footer">
                             <span class="float-start">
-                                <button class="float-end"> Book</button>
+                                <button type="submit" class="btn btn-primary"> <?= $movie->getPrice()?></button>
                         </div>
                     </div>
                 </div>

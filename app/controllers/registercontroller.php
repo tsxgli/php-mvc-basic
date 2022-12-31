@@ -27,6 +27,7 @@ class RegisterController
             $user->setIsAdmin(false);
             $this->registerService->registerUser($user);
             
+            // navigate to login page after register
             echo "<script>location.href='/login'</script>";
         }
     }
