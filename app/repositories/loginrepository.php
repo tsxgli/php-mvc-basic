@@ -31,9 +31,9 @@ class LoginRepository extends Repository
         
             if (password_verify($password, $row['password'])) {
                 return true;
-            } else {
+            } 
                 return false;
-            }
+            
         } catch (PDOException $e) {
             echo $e;
         }

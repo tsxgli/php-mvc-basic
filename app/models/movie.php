@@ -7,6 +7,7 @@ class Movie{
     private string $genre;
     private string $dateProduced;
 	private string $price;
+	private string $image;
 
 
     public function __construct(){
@@ -90,6 +91,54 @@ class Movie{
 	 */
 	public function setPrice(string $price): self {
 		$this->price = $price;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTitle(): string {
+		return $this->title;
+	}
+	
+	/**
+	 * @param string $title 
+	 * @return self
+	 */
+	public function setTitle(string $title): self {
+		$this->title = $title;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getImage(): string {
+		return $this->image;
+	}
+	
+	/**
+	 * @param string $imageName 
+	 * @return self
+	 */
+	public function setImage(string $image): self {
+		$this->image = $image;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDescription(): string {
+		return $this->description;
+	}
+	
+	/**
+	 * @param string $description 
+	 * @return self
+	 */
+	public function setDescription(string $description): self {
+		$this->description = $description;
 		return $this;
 	}
 }

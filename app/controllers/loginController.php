@@ -18,12 +18,13 @@ class LoginController
 
             $model = $this->loginService->validateUser($email, $password);
             if ($model) {
+                session_start();
                 echo "<script>location.href='/home'</script>";
+                $session['loggedInEmail']=$email;
             } else {
                 echo "wrong password";
             }
         }
-
     }
 }
 

@@ -1,12 +1,12 @@
 <?php
-require __DIR__ . '/../repositories/articlerepository.php';
+require __DIR__ . '/../repositories/movierepository.php';
 
-class ArticleService {
+class MovieService {
 
     private $repository;
     function __construct()
     {
-        $this->repository = new ArticleRepository();
+        $this->repository = new MovieRepository();
   
     }
     public function getAll() {

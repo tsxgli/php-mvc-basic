@@ -19,9 +19,9 @@ class SwitchRouter
                 $controller = new HomeController();
                 $controller->about();
                 break;
-            case 'article':
-                require __DIR__ . '/../controllers/articlecontroller.php';
-                $controller = new ArticleController();
+            case 'movies':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
                 $controller->index();
                 break;
             case 'login':
