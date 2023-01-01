@@ -27,9 +27,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/movies">Movies</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/home/about">About</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Genre
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/genre/action">Action</a>
+                            <a class="dropdown-item" href="/genre/comedy">Comedy</a>
+                            <a class="dropdown-item" href="/genre/drama">Drama</a>
+                            <a class="dropdown-item" href="/genre/thriller">Thriller</a>
+                        </div>
                     </li>
+
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="row">

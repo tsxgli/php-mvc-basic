@@ -20,11 +20,11 @@ include __DIR__ . '/../header.php';
                 <?php
                 foreach ($model as $movie) {
                     ?>
-                <div class="col-2">
+                <div class="col-3">
                     <div class="card">
-                        <div class="card-body" >
-                            <p> <?= $movie->getTitle() ?></p>
-                            <div class="card-body" style="height: 16rem;">
+                        <div class="card-header">
+                            <h5> <?= $movie->getTitle() ?></h5>
+                            <div class="card-body">
                                 <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
                                     class="img-fluid ">
                             </div>

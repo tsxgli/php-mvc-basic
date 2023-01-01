@@ -8,6 +8,8 @@ class Movie{
     private string $dateProduced;
 	private string $price;
 	private string $image;
+	private int $stock;
+	
 
 
     public function __construct(){
@@ -139,6 +141,22 @@ class Movie{
 	 */
 	public function setDescription(string $description): self {
 		$this->description = $description;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getStock(): int {
+		return $this->stock;
+	}
+	
+	/**
+	 * @param int $stock 
+	 * @return self
+	 */
+	public function setStock(int $stock): self {
+		$this->stock = $stock;
 		return $this;
 	}
 }
