@@ -12,10 +12,12 @@ class MovieController
 
     public function index()
     {
-
         $model = $this->movieservice->getAll();
-        
-       require __DIR__ . '/../views/home/index.php';
-        
+       require __DIR__ . '/../views/home/index.php';   
+    }
+    public function filterMovies(string $filter){
+       $model =  $this->movieservice->filterMovies($filter);
+        $_SESSION['genre'] = $filter;
+        require __DIR__ . '/../views/home/details.php';   
     }
 }

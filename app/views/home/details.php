@@ -16,7 +16,7 @@ include __DIR__ . '/../header.php';
 <body>
     <section>
         <div class="container">
-         
+        <h1 class="text-capitalize"><?=$_SESSION['genre']?> movies</h1>
             <div class="row">
                 <?php
                 foreach ($model as $movie) {

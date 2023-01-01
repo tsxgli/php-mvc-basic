@@ -13,4 +13,7 @@ class MovieService {
        
         return $this->repository->getAll();
     }
+    public function filterMovies(string $filter){
+        return $this->repository->filterMovies($filter);
+    }
 }

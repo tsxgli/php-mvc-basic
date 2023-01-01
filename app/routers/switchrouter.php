@@ -34,6 +34,26 @@ class SwitchRouter
                 $controller = new RegisterController();
                 $controller->registerUser();
                 break;
+            case 'genre/drama':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->filterMovies("drama");
+                break;
+            case 'genre/thriller':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->filterMovies("thriller");
+                break;
+            case 'genre/comedy':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->filterMovies("comedy");
+                break;
+            case 'genre/action':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->filterMovies("action");
+                break;
             default:
                 http_response_code(404);
                 break;
