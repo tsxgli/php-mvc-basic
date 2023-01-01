@@ -20,6 +20,7 @@ include __DIR__ . '/../header.php';
             <div class="row">
                 <?php
                 foreach ($model as $movie) {
+                    $_SESSION['movie'] = $movie;
                     ?>
                 <div class="col-3">
                     <div class="card" style="width: 100%; height: 100%;">

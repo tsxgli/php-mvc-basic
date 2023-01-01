@@ -28,19 +28,21 @@ include __DIR__ . '/../header.php';
                 foreach ($model as $movie) {
                     ?>
                 <div class="col-3">
-                    <div class="card" style="width: 100%; height: 100%;">
-                        <div class="card-body">
-                            <h5 class="card-title"> <?= $movie->getTitle() ?></h5>
+                    
+                        <div class="card" style="width: 100%; height: 100%;">
                             <div class="card-body">
-                                <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
-                                    class="img-fluid ">
+                                <h5 class="card-title"> <?= $movie->getTitle() ?></h5>
+                                <div class="card-body">
+                                    <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
+                                        class="img-fluid ">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="float-start">
+                                    <button type="submit" class="btn btn-primary"> <?= $movie->getPrice()?></button>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <span class="float-start">
-                                <button type="submit" class="btn btn-primary"> <?= $movie->getPrice()?></button>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <?php
                 }
