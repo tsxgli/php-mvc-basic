@@ -22,7 +22,7 @@ include __DIR__ . '/../header.php';
                 foreach ($model as $movie) {
                     ?>
                 <div class="col-3">
-                    <div class="card">
+                    <div class="card" style="width: 100%; height: 100%;">
                         <div class="card-body">
                             <h5 class="card-title"> <?= $movie->getTitle() ?></h5>
                             <div class="card-body">

@@ -18,6 +18,6 @@ class MovieController
     public function filterMovies(string $filter){
        $model =  $this->movieservice->filterMovies($filter);
         $_SESSION['genre'] = $filter;
-        require __DIR__ . '/../views/home/details.php';   
+        require __DIR__ . '/../views/home/genre.php';   
     }
 }

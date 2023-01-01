@@ -14,6 +14,12 @@ include __DIR__ . '/../header.php';
 </head>
 
 <body>
+    <div class="card bg-primary text-white text-center mb-5" style="width: 100%;">
+      <div class="card-body mb-5 mt-5">
+        <h5 class="card-title  mt-5">WMovies</h5>
+      </div>
+    </div>
+
     <section>
         <div class="container">
          
@@ -22,7 +28,7 @@ include __DIR__ . '/../header.php';
                 foreach ($model as $movie) {
                     ?>
                 <div class="col-3">
-                    <div class="card">
+                    <div class="card" style="width: 100%; height: 100%;">
                         <div class="card-body">
                             <h5 class="card-title"> <?= $movie->getTitle() ?></h5>
                             <div class="card-body">
@@ -44,6 +50,7 @@ include __DIR__ . '/../header.php';
 </body>
 
 </html>
+
 <?php
 include __DIR__ . '/../footer.php';
 ?>
