@@ -22,7 +22,7 @@ class MovieController
     }
     public function getMovie(){
         $id = 0;
-        $_GET['id'] = $id;
+        $id = $_GET['id'];
         $model =  $this->movieservice->getMovie($id);
         $data = array(
             'movie' => $model

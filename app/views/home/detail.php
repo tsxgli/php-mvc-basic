@@ -17,7 +17,10 @@ include __DIR__ . '/../header.php';
         <div class="container">
             <div class="row">
                 <div class="col">
-                  <img src="<?php echo $data['Title'];?>">
+                   <p><?php
+                    echo $movie->getTitle();?></p> 
+                <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
+                                    class="img-fluid " style="height: 100%;">
                 </div>
                 <div class="col">
                     <h1><?php echo"upooo";?></h1>
