@@ -35,4 +35,20 @@ class MovieRepository extends Repository {
             echo $e;
         }
     }
+    function getMovie($id){
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM Movie where _id = :id");
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Movie');
+            $movies = $stmt->fetchAll();
+
+            return $movies;
+
+        } catch (PDOException $e)
+        {
+            echo $e;
+        }
+    }
 }

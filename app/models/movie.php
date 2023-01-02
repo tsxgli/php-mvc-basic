@@ -1,6 +1,6 @@
 <?php
 class Movie{
-    private int $id;
+    private int $_id;
     private string $title;
     private string $director;
     private string $description;
@@ -9,7 +9,7 @@ class Movie{
 	private string $price;
 	private string $image;
 	private int $stock;
-	
+
 
 
     public function __construct(){
@@ -48,21 +48,6 @@ class Movie{
 		return $this;
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getId(): int {
-		return $this->id;
-	}
-	
-	/**
-	 * @param int $id 
-	 * @return self
-	 */
-	public function setId(int $id): self {
-		$this->id = $id;
-		return $this;
-	}
 
 	/**
 	 * @return string
@@ -157,6 +142,22 @@ class Movie{
 	 */
 	public function setStock(int $stock): self {
 		$this->stock = $stock;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function get_id(): int {
+		return $this->_id;
+	}
+	
+	/**
+	 * @param int $_id 
+	 * @return self
+	 */
+	public function set_id(int $_id): self {
+		$this->_id = $_id;
 		return $this;
 	}
 }

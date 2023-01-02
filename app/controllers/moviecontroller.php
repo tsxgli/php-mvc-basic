@@ -20,4 +20,15 @@ class MovieController
         $_SESSION['genre'] = $filter;
         require __DIR__ . '/../views/home/genre.php';   
     }
+    public function getMovie(){
+        $id = 0;
+        $_GET['id'] = $id;
+        $model =  $this->movieservice->getMovie($id);
+        $data = array(
+            'movie' => $model
+        );
+        extract($data);
+        require __DIR__ . '/../views/home/detail.php';   
+    }
+    
 }

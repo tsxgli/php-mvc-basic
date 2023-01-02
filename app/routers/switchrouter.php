@@ -54,6 +54,13 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->filterMovies("action");
                 break;
+            case 'detail':
+                if (isset($_GET['id'])) {
+                    require __DIR__ . '/../controllers/moviecontroller.php';
+                    $controller = new MovieController();
+                    $controller->getMovie();
+                }
+                break;
             default:
                 http_response_code(404);
                 break;
