@@ -23,6 +23,7 @@ class LoginController
                 $session['loggedInEmail']=$email;
             } else {
                 echo "wrong password";
+                
             }
         }
     }
