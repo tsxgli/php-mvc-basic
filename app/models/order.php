@@ -1,5 +1,5 @@
 <?php
-class Article
+class Order
 {
 
     private int $id;

@@ -6,7 +6,6 @@ class HomeController
     {
         require __DIR__ . '/../views/home/index.php';
     }
-
     public function about()
     {
         require __DIR__ . '/../views/home/about.php';

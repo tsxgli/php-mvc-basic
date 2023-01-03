@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/../services/loginservice.php';
+//require __DIR__ . '/../models/user.php';
 
 class LoginController
 {
@@ -10,23 +11,22 @@ class LoginController
         $this->loginService = new LoginService();
 
     }
-    public function validateUser()
-    {
+    public function validateUser():?User{
         if (isset($_POST['loginButton'])) {
             $email = htmlspecialchars($_POST['emailLogin']);
             $password = htmlspecialchars($_POST['passwordLogin']);
-
-            $model = $this->loginService->validateUser($email, $password);
-            if ($model) {
+             
+            $user = $this->loginService->validateUser($email, $password);
+            if ($user) {
                 session_start();
                 echo "<script>location.href='/home'</script>";
-                $session['loggedInEmail']=$email;
+                $_SESSION['loggedInUser'] = $user;
             } else {
                 echo "wrong password";
-                
             }
         }
     }
+    
 }
 
 ?>

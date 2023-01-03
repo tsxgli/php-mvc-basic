@@ -1,6 +1,6 @@
 <?php
 class User{
-	private int $id;
+	private int $_id;
     private string $firstName;
     private string $lastName;
     private string $postCode;
@@ -138,6 +138,22 @@ class User{
 	 */
 	public function setIsAdmin(bool $isAdmin): self {
 		$this->isAdmin = $isAdmin;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function get_id(): int {
+		return $this->_id;
+	}
+	
+	/**
+	 * @param int $_id 
+	 * @return self
+	 */
+	public function set_id(int $_id): self {
+		$this->_id = $_id;
 		return $this;
 	}
 }

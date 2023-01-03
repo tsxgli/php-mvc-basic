@@ -1,11 +1,10 @@
 <?php
-
-class OrderRepository
+require __DIR__ . '/repository.php';
+require __DIR__ . '/../views/cart/index.php';
+class OrderRepository extends Repository
 {
-    protected $connection;
-
-    function addToCart()
+    function addToCart(Order $order)
     {
-        
+        return $_SESSION['orders'] += $order;
     }
 }

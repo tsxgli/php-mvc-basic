@@ -2,6 +2,7 @@
 require __DIR__ . '/repository.php';
 require __DIR__ . '/../views/login/index.php';
 
+
 class LoginRepository extends Repository
 {
 
@@ -21,8 +22,7 @@ class LoginRepository extends Repository
         }
     }
 
-    function validateUser(string $email, string $password)
-    {
+    function validateUser(string $email, string $password): ?User {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM Users WHERE Email = :email");
             $stmt->bindValue(':email', $email);
@@ -30,12 +30,23 @@ class LoginRepository extends Repository
             $row = $stmt->fetch();
         
             if (password_verify($password, $row['password'])) {
-                return true;
+                $user = new User();
+                $user->set_id($row['_id'])
+                     ->setFirstName($row['firstname'])
+                     ->setLastName($row['lastname'])
+                     ->setPostCode($row['postcode'])
+                     ->setAddress($row['address'])
+                     ->setBirthdate($row['birthdate'])
+                     ->setEmail($row['email'])
+                     ->setPassword($row['password'])
+                     ->setIsAdmin($row['isAdmin']);
+                return $user;
             } 
-                return false;
+            return null;
             
         } catch (PDOException $e) {
             echo $e;
         }
     }
+    
 }
