@@ -9,7 +9,7 @@ class Movie{
 	private string $price;
 	private string $image;
 	private int $stock;
-
+	private string $rating;
 
 
     public function __construct(){
@@ -158,6 +158,22 @@ class Movie{
 	 */
 	public function set_id(int $_id): self {
 		$this->_id = $_id;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRating(): string {
+		return $this->rating;
+	}
+	
+	/**
+	 * @param string $rating 
+	 * @return self
+	 */
+	public function setRating(string $rating): self {
+		$this->rating = $rating;
 		return $this;
 	}
 }

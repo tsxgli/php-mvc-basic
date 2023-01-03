@@ -33,9 +33,20 @@ include __DIR__ . '/../header.php';
                         <h3>Date Produced</h3>
                         <p><?php echo $model[0]->getDateProduced();?></p>
                     </div>
+                    <div class="row">
+                        <h3>Genre</h3>
+                        <p><?php echo $model[0]->getGenre();?></p>
+                    </div>
+                    <div class="row">
+                        <h3>Rating</h3>
+                        <p><?php echo $model[0]->getRating();?></p>
+                    </div>
+                    <div class="row">
+                        <h3>Price</h3>
+                        <div class="col"> <button class="btn btn-warning" type="submit" name="buyMovieBtn" ><?php echo $model[0]->getPrice();?></button></div>
+                    </div>
                 </div>
                 <div class="col"></div>
-              
             </div>
         </div>
     </section>
