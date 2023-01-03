@@ -24,11 +24,6 @@ class MovieController
         $id = 0;
         $id = $_GET['id'];
         $model =  $this->movieservice->getMovie($id);
-        $data = array(
-            'movie' => $model
-        );
-        extract($data);
         require __DIR__ . '/../views/home/detail.php';   
     }
-    
 }

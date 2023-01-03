@@ -12,19 +12,30 @@ include __DIR__ . '/../header.php';
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Detail page</title>
 </head>
+
 <body>
     <section>
         <div class="container">
             <div class="row">
+                <h1 class="text-center"><?php echo $model[0]->getTitle();?></h1>
                 <div class="col">
-                   <p><?php
-                    echo $movie->getTitle();?></p> 
-                <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
-                                    class="img-fluid " style="height: 100%;">
+                    <img src="/images<?='/'. $model[0]->getImage()?>" alt="<?php $title?>" class="img-thumbnail"
+                        style="height: 100% ;">
                 </div>
                 <div class="col">
-                    <h1><?php echo"upooo";?></h1>
+                    <h3 class="pr-1">Description</h3>
+                    <p class="text-left ml-20"><?php echo $model[0]->getDescription();?></p>
+                    <div class="row">
+                        <h3>Director</h3>
+                        <p><?php echo $model[0]->getDirector();?></p>
+                    </div>
+                    <div class="row">
+                        <h3>Date Produced</h3>
+                        <p><?php echo $model[0]->getDateProduced();?></p>
+                    </div>
                 </div>
+                <div class="col"></div>
+              
             </div>
         </div>
     </section>

@@ -9,8 +9,8 @@ class SwitchRouter
             case '':
             case 'home':
             case 'home/index':
-                require __DIR__ . '/../controllers/homecontroller.php';
-                $controller = new HomeController();
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
                 $controller->index();
                 break;
 
