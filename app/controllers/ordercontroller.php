@@ -14,8 +14,9 @@ class OrderController
     {
 
     }
-    public function paymentSuccessful(){
-        require __DIR__ . '/../views/cart/paymentSuccessful.php';   
+    public function paymentSuccessful()
+    {
+       require __DIR__ . '/../views/order/paymentSuccessful.php';   
     }
 
   

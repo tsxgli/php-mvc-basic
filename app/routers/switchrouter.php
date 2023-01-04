@@ -60,11 +60,11 @@ class SwitchRouter
                 $controller = new OrderController();
                 $controller->addToCart();
                 break;
-                case 'paymentSuccessful':
-                    require __DIR__ . '/../controllers/ordercontroller.php';
-                    $controller = new OrderController();
-                    $controller->paymentSuccessful();
-                    break;
+            case 'paymentSuccessful':
+                require __DIR__ . '/../controllers/ordercontroller.php';
+                $controller = new OrderController(;
+                $controller->paymentSuccessful();
+                break;        
             default:
                 http_response_code(404);
                 break;

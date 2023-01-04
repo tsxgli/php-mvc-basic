@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/repository.php';
-require __DIR__ . '/../views/cart/index.php';
+require __DIR__ . '/../views/order/index.php';
 class OrderRepository extends Repository
 {
     function addToCart(Order $order)
