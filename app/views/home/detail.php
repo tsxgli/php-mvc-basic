@@ -43,7 +43,7 @@ include __DIR__ . '/../header.php';
                     </div>
                     <div class="row">
                         <h3>Price</h3>
-                        <div class="col"> <button class="btn btn-warning" type="submit" name="buyMovieBtn" ><?php echo $model[0]->getPrice();?></button></div>
+                        <div class="col"> <a class="btn btn-warning" type="submit" href="/cart" name="buyMovieBtn"><?php echo $model[0]->getPrice();?></a></div>
                     </div>
                 </div>
                 <div class="col"></div>

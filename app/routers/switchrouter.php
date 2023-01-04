@@ -13,12 +13,6 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->index();
                 break;
-
-            case 'home/about':
-                require __DIR__ . '/../controllers/homecontroller.php';
-                $controller = new HomeController();
-                $controller->about();
-                break;
             case 'movies':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
@@ -61,6 +55,16 @@ class SwitchRouter
                     $controller->getMovie();
                 }
                 break;
+            case 'cart':
+                require __DIR__ . '/../controllers/ordercontroller.php';
+                $controller = new OrderController();
+                $controller->addToCart();
+                break;
+                case 'paymentSuccessful':
+                    require __DIR__ . '/../controllers/ordercontroller.php';
+                    $controller = new OrderController();
+                    $controller->paymentSuccessful();
+                    break;
             default:
                 http_response_code(404);
                 break;
@@ -71,7 +75,7 @@ class SwitchRouter
     {
         if (str_contains($uri, '?')) {
             $uri = substr($uri, 0, strpos($uri, '?'));
-        }
-        return $uri;
-    }
+}
+return $uri;
+}
 }
