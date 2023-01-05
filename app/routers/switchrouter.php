@@ -58,7 +58,7 @@ class SwitchRouter
             case 'cart':
                 require __DIR__ . '/../controllers/ordercontroller.php';
                 $controller = new OrderController();
-               // $controller->addToCart();
+                $controller->addToCart();
                 break;
             case 'paymentSuccessful':
                 require __DIR__ . '/../controllers/ordercontroller.php';

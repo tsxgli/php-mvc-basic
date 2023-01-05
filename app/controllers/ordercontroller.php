@@ -14,6 +14,10 @@ class OrderController
     {
        require __DIR__ . '/../views/order/paymentSuccessful.php';   
     }
+    public function addToCart()
+    {
+       require __DIR__ . '/../views/order/index.php';   
+    }
   
 }
 
