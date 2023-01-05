@@ -29,6 +29,10 @@ class LoginRepository extends Repository
             $stmt->execute();
             $row = $stmt->fetch();
         
+            if (!$row) {
+                // No rows were returned, so return null
+                return null;
+            }
             if (password_verify($password, $row['password'])) {
                 $user = new User();
                 $user->set_id($row['_id'])
@@ -42,8 +46,6 @@ class LoginRepository extends Repository
                      ->setIsAdmin($row['isAdmin']);
                 return $user;
             } 
-            return null;
-            
         } catch (PDOException $e) {
             echo $e;
         }

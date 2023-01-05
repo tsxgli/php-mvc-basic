@@ -5,6 +5,6 @@ class OrderRepository extends Repository
 {
     function addToCart(Order $order)
     {
-        return $_SESSION['orders'] += $order;
+        //return $_SESSION['orders'] += $order;
     }
 }

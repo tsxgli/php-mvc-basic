@@ -58,13 +58,13 @@ class SwitchRouter
             case 'cart':
                 require __DIR__ . '/../controllers/ordercontroller.php';
                 $controller = new OrderController();
-                $controller->addToCart();
+               // $controller->addToCart();
                 break;
             case 'paymentSuccessful':
                 require __DIR__ . '/../controllers/ordercontroller.php';
-                $controller = new OrderController(;
+                $controller = new OrderController();
                 $controller->paymentSuccessful();
-                break;        
+                break;
             default:
                 http_response_code(404);
                 break;
@@ -75,7 +75,7 @@ class SwitchRouter
     {
         if (str_contains($uri, '?')) {
             $uri = substr($uri, 0, strpos($uri, '?'));
-}
-return $uri;
-}
+        }
+        return $uri;
+    }
 }

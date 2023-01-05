@@ -11,22 +11,37 @@ class LoginController
         $this->loginService = new LoginService();
 
     }
-    public function validateUser():?User{
+    // public function validateUser():?User{
+    //     if (isset($_POST['loginButton'])) {
+    //         $email = htmlspecialchars($_POST['emailLogin']);
+    //         $password = htmlspecialchars($_POST['passwordLogin']);
+             
+    //         $user = $this->loginService->validateUser($email, $password);
+    //         if ($user) {
+    //             session_start();
+    //             echo "<script>location.href='/home'</script>";
+    //             $_SESSION['loggedInUser'] = $user;
+    //         } else {
+    //             echo "wrong password";
+    //         }
+    //     }
+      
+    // }
+    public function validateUser(): ?User {
         if (isset($_POST['loginButton'])) {
             $email = htmlspecialchars($_POST['emailLogin']);
             $password = htmlspecialchars($_POST['passwordLogin']);
-             
+    
             $user = $this->loginService->validateUser($email, $password);
             if ($user) {
                 session_start();
                 echo "<script>location.href='/home'</script>";
                 $_SESSION['loggedInUser'] = $user;
-            } else {
-                echo "wrong password";
-            }
+                return $user;
+            } 
+                echo "Invalid email or password. Please try again.";
         }
+        return null;
     }
-    
 }
-
 ?>

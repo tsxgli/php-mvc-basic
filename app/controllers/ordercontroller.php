@@ -10,15 +10,10 @@ class OrderController
         $this->orderService = new OrderService();
     }
 
-    public function addToCart()
-    {
-
-    }
     public function paymentSuccessful()
     {
        require __DIR__ . '/../views/order/paymentSuccessful.php';   
     }
-
   
 }
 
