@@ -55,8 +55,8 @@
                                         alt="Login icon" width="30">
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/logout">Log out</a>
-                                    <a class="dropdown-item">User: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
+                                    <a class="dropdown-item">Logged in: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
+                                    <a class="dropdown-item" style="background:#F08181;" href="/logout">Log out</a>
                                 </div>
                             </div>
 
