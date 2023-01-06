@@ -56,7 +56,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/logout">Log out</a>
-                                    <a class="dropdown-item">User</a>
+                                    <a class="dropdown-item">User: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
                                 </div>
                             </div>
 

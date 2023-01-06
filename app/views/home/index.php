@@ -1,5 +1,7 @@
 <?php
+session_start();
 include __DIR__ . '/../header.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +20,7 @@ include __DIR__ . '/../header.php';
         <div class="card-body mb-5 mt-5">
 
             <h5 class="card-title  mt-5">WMovies</h5>
+            <h1></h1>
         </div>
     </div>
     <section>

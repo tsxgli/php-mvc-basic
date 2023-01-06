@@ -34,10 +34,10 @@ class LoginController
     //     return null;
     // }
 
-    public function validateUser(): ?User
+    public function validateUser()
     {
         require __DIR__ . '/../views/login/index.php';
-     
+      
         if (isset($_POST['loginButton'])) {
             $email = htmlspecialchars($_POST['emailLogin']);
             $password = htmlspecialchars($_POST['passwordLogin']);
@@ -48,10 +48,11 @@ class LoginController
             }
             else{
                 echo "<script>location.href='/movies'</script>";
-                $_SESSION["loggedInUser"] = serialize($user);
+                $_SESSION['loggedInUser'] = $user;
+                echo $_SESSION['loggedInUser'];
             }
         }
-        return null;
+        return  null;
     }
     public function logout(){
         session_destroy();
