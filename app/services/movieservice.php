@@ -10,7 +10,6 @@ class MovieService {
   
     }
     public function getAll() {
-       
         return $this->repository->getAll();
     }
     public function filterMovies(string $filter){

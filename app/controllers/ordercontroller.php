@@ -12,13 +12,44 @@ class OrderController
 
     public function paymentSuccessful()
     {
-       require __DIR__ . '/../views/order/paymentSuccessful.php';   
+        require __DIR__ . '/../views/order/paymentSuccessful.php';
     }
+    public function index()
+    {
+        require __DIR__ . '/../views/order/index.php';
+    }
+    // public function addToCart()
+    // {
+    //     if ($_POST['buyMovieBtn']) {
+    //         $_SESSION['cart'][] = $movie;
+    //     }
+    //     require __DIR__ . '/../views/order/index.php';
+    // }
+
     public function addToCart()
     {
-       require __DIR__ . '/../views/order/index.php';   
+        // Get the movie id from the form submission
+        $movieId = htmlspecialchars($_POST['movieId']);
+
+        // Load the movie model
+        $movieModel = $this->model('Movie');
+        // Get the movie object from the database using the movie id
+        $movie = $movieModel->getById($movieId);
+
+        // Start the session
+        // Check if the cart session variable exists
+        if (!isset($_SESSION['cart'])) {
+            // If it doesn't exist, create it as an empty array
+            $_SESSION['cart'] = array();
+        }
+        // Add the movie object to the cart session variable
+        array_push($_SESSION['cart'], $movie);
+
+        // Redirect the user back to the detail page
+        header('Location: /movies/detail/' . $movieId);
+
+        echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
     }
-  
 }
 
 ?>

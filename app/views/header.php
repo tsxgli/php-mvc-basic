@@ -48,11 +48,20 @@
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </div>
                         <div class="col">
-                            <a type="button" class="btn btn-link p-0 login-button ml-10" href="/login">
-                                <img src="https://cdn.iconscout.com/icon/free/png-256/account-269-866236.png"
-                                    alt="Login icon" width="30">
-                            </a>
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-256/account-269-866236.png"
+                                        alt="Login icon" width="30">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/logout">Log out</a>
+                                    <a class="dropdown-item">User</a>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
 
 

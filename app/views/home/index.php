@@ -16,19 +16,18 @@ include __DIR__ . '/../header.php';
 <body>
     <div class="card bg-primary text-white text-center mb-5" style="width: 100%;">
         <div class="card-body mb-5 mt-5">
+
             <h5 class="card-title  mt-5">WMovies</h5>
         </div>
     </div>
-
     <section>
         <div class="container">
-
             <div class="row">
                 <?php
                 foreach ($model as $movie) {
                     ?>
                 <div class="col-3">
-                    <a href="/detail?id=<?php echo $movie->get_id();?>" style="display:inline-block; height:100%;"">
+                    <a href="/detail?id=<?php echo $movie->get_id();?>" style="display:inline-block; "">
                         <div class=" card" style="width: 100%; height: 100%;">
                         <div class="card-body">
                             <h5 class="card-title"> <?= $movie->getTitle() ?></h5>
@@ -39,7 +38,7 @@ include __DIR__ . '/../header.php';
                         </div>
                         <div class="card-footer">
                             <span class="float-start">
-                                <button type="submit" class="btn btn-primary"> <?= $movie->getPrice()?></button>
+                                <a type="submit" href="/cart?id=<?php echo $movie->get_id();?>" class="btn btn-primary" name="buyMovieBtnHome"> <?= $movie->getPrice()?></a>
                         </div>
                 </div>
                 </a>

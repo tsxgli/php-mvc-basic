@@ -9,9 +9,9 @@ class SwitchRouter
             case '':
             case 'home':
             case 'home/index':
-                require __DIR__ . '/../controllers/moviecontroller.php';
-                $controller = new MovieController();
-                $controller->index();
+                require __DIR__ . '/../controllers/logincontroller.php';
+                $controller = new LoginController();
+                $controller->validateUser();
                 break;
             case 'movies':
                 require __DIR__ . '/../controllers/moviecontroller.php';
@@ -55,16 +55,27 @@ class SwitchRouter
                     $controller->getMovie();
                 }
                 break;
-            case 'cart':
+            case 'orders':
                 require __DIR__ . '/../controllers/ordercontroller.php';
                 $controller = new OrderController();
-                $controller->addToCart();
+                $controller->index();
                 break;
             case 'paymentSuccessful':
                 require __DIR__ . '/../controllers/ordercontroller.php';
                 $controller = new OrderController();
                 $controller->paymentSuccessful();
                 break;
+            case 'cart':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->addMovieToCart();
+                break;
+            case 'logout':
+                require __DIR__ . '/../controllers/logincontroller.php';
+                $controller = new LoginController();
+                $controller->logout();
+                break;
+
             default:
                 http_response_code(404);
                 break;

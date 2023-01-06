@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/repository.php';
-require __DIR__ . '/../views/login/index.php';
+
 
 
 class LoginRepository extends Repository
@@ -44,6 +44,7 @@ class LoginRepository extends Repository
                      ->setEmail($row['email'])
                      ->setPassword($row['password'])
                      ->setIsAdmin($row['isAdmin']);
+                     
                 return $user;
             } 
         } catch (PDOException $e) {

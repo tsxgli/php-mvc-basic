@@ -26,4 +26,12 @@ class MovieController
         $model =  $this->movieservice->getMovie($id);
         require __DIR__ . '/../views/home/detail.php';   
     }
+    public function addMovieToCart(){
+        require __DIR__ . '/../views/order/index.php'; 
+        if(isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])){
+            $movie =  $this->movieservice->getMovie($_GET['id']);
+            array_push($_SESSION['cartItems'], $movie);
+        }
+        var_dump($_SESSION['cartItems']);
+    }
 }
