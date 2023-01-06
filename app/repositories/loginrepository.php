@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/repository.php';
-require __DIR__ . '/../models/user.php';
+//require __DIR__ . '/../models/user.php';
 class LoginRepository extends Repository
 {
     function getAll()
@@ -55,9 +55,12 @@ class LoginRepository extends Repository
             $stmt = $this->connection->prepare("SELECT * FROM User WHERE Email = :email");
             $stmt->bindValue(':email', $email);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+            //$stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
             $row = $stmt->fetch();
-            if (password_verify($password, $row['password'])) {
+            if (is_null($row['password'])) {
+                return null;
+            }
+            else if (password_verify($password, $row['password'])) {
                 return $row;
             }
             

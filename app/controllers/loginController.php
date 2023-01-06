@@ -48,7 +48,6 @@ class LoginController
             }
             else{
                 echo "<script>location.href='/movies'</script>";
-                
                 $_SESSION["loggedInUser"] = serialize($user);
             }
         }
