@@ -49,7 +49,7 @@ class LoginController
             else{
                 echo "<script>location.href='/movies'</script>";
                 $_SESSION['loggedInUser'] = $user;
-                echo $_SESSION['loggedInUser'];
+                //echo $_SESSION['loggedInUser'];
             }
         }
         return  null;

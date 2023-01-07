@@ -43,9 +43,12 @@ include __DIR__ . '/../header.php';
                     </div>
                     <div class="row">
                         <h3>Price</h3>
-                        <div class="col"> 
-                        <a type="submit"class="btn btn-warning" href="/cart?id=<?php echo $model[0]->get_id();?>" name="buyMovieBtnHome"> <?= $model[0]->getPrice()?></a>
-                        </div>
+                    </div>
+                    <div class="row">
+                        <form action="/cart?id=<?php echo $model[0]->get_id();?>" method="POST">
+                            <button type="submit" class="btn btn-warning" name="buyMovieBtn">
+                                <?= $model[0]->getPrice()?></button>
+                        </form>
                     </div>
                 </div>
                 <div class="col"></div>
