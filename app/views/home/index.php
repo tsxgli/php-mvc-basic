@@ -39,7 +39,11 @@ include __DIR__ . '/../header.php';
                         </div>
                         <div class="card-footer">
                             <span class="float-start">
-                                <a type="submit" href="/cart?id=<?php echo $movie->get_id();?>" class="btn btn-primary" name="buyMovieBtnHome"> <?= $movie->getPrice()?></a>
+                            <form action="/cart?id=<?php echo $movie->get_id();?>" method="POST">
+                            <button type="submit" class="btn btn-primary" name="buyMovieBtnHome">
+                                <?= $movie->getPrice()?></button>
+                        </form>
+                               
                         </div>
                 </div>
                 </a>

@@ -28,8 +28,8 @@ class MovieController
     }
     public function addMovieToCart()
     { 
-        if (isset($_POST['buyMovieBtn'])) {
-            //echo "<script type='text/javascript'>alert('Item has been added to cart.');</script>";
+        if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
+            
             $movie = $this->movieservice->getMovie($_GET['id']);
             if (!isset($_SESSION['cartItems']) || !in_array($movie, $_SESSION['cartItems'])) {
                 $_SESSION['cartItems'][] = $movie;
