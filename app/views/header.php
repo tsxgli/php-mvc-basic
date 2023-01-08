@@ -1,8 +1,4 @@
-<?php
-if (!(isset($_SESSION))) {
-    session_start();
-}
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,11 +40,11 @@ if (!(isset($_SESSION))) {
                     </li>
 
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0" method="POST">
                     <div class="row">
-                       
+
                         <div class="col">
-                            <a class="btn btn-outline-success my-2 my-sm-0" href="/cart"  type="submit">Cart</a>
+                            <a class="btn btn-outline-success my-2 my-sm-0" href="/cart" type="submit">Cart</a>
                         </div>
                         <div class="col">
                             <div class="nav-item dropdown">
@@ -57,18 +53,16 @@ if (!(isset($_SESSION))) {
                                     <img src="https://cdn.iconscout.com/icon/free/png-256/account-269-866236.png"
                                         alt="Login icon" width="30">
                                 </a>
+
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" <?php if (is_null($_SESSION['loggedInUser'])) { ?> hidden
                                         <?php } ?>>Logged in: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
-                                   
-                                    <a class="dropdown-item" name="admin"
+
+                                    <a class="dropdown-item" name="admin" href="admin/index"
                                         <?php if ($_SESSION['loggedInUser']['isAdmin'] == '0'){ ?> hidden
                                         <?php }?>>Admin settings</a>
-                                    <a class="dropdown-item" name="admin"
-                                        <?php if (!is_null($_SESSION['loggedInUser'])){ ?> hidden <?php }?> href="/admin/index">Admin
-                                        settings</a>
+                               
                                     <a class="dropdown-item" style="background:#F08181;" href="/logout">Log out</a>
-
                                 </div>
                             </div>
 
@@ -83,4 +77,3 @@ if (!(isset($_SESSION))) {
     </nav>
 
     <div class="container">
-

@@ -1,6 +1,5 @@
 <?php
-require __DIR__ . '/../services/registerservice.php';
-require __DIR__ . '/../models/user.php';
+require __DIR__ . '/../services/userservice.php';
 class UserController
 {
     private $userservice;
@@ -10,9 +9,13 @@ class UserController
         $this->userservice = new UserService();
     }
     public function adminIndex(){
-        require __DIR__ . '/../views/admin/index.php';
-        
+        require __DIR__ . '/../views/admin/index.php'; 
     } 
+  
+
+    public function manageUsers(){
+        require __DIR__ . '/../views/admin/usersmanagement.php'; 
+    }
 }
 
 ?>

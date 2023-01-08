@@ -13,6 +13,7 @@ class MovieController
     {
         $model = $this->movieservice->getAll();
         require __DIR__ . '/../views/home/index.php';
+
     }
     public function filterMovies(string $filter)
     {
@@ -26,38 +27,56 @@ class MovieController
         $model = $this->movieservice->getMovie($id);
         require __DIR__ . '/../views/home/detail.php';
     }
-    public function addMovieToCart()
-    { 
-        if (!isset($_SESSION['cartItems'])) {
-        $_SESSION ['cartItems'] = array ();
-    }
-        if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
-            $movie = $this->movieservice->getMovie($_GET['id']);
-            $_SESSION['cartItems'][] = $movie;
-            array_push($_SESSION['cartItems'], $movie);
-            //print_r($myArray);
-        }
-       
-        require __DIR__ . '/../views/order/index.php';
-    }
-    // public function addMovieToCart()
-    // { 
-    //     // if (!isset($_SESSION['cartItems'])) {
-    //     //     $_SESSION ['cartItems'] = array ();
-    //     // }
-    //     // if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
-    //     //     $movie = $this->movieservice->getMovie($_GET['id']);
-    //     //     $_SESSION['cartItems'] = $movie;  
-    //     // }
 
-    //     if (isset($_POST["buyMovieBtn"])) {
-    //         // Check the item is not already in the cart
-    //         if (!in_array($_POST ['buyMovieBtn'],$_SESSION['cartItems'])) {
-    //             // Add new item to cart
-    //             $_SESSION ['cartItems'][] = $_POST['buyMovieBtn'];
-    //         }
-    //     }
-    //     require __DIR__ . '/../views/order/index.php';
-    // }
+    public function addMovieToCart()
+    {
+        $movieId = $_GET['id'];
+        if (!isset($_SESSION['cartItems'])) {
+            $_SESSION['cartItems'] = array();
+        }
+        if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
+            if (isset($_SESSION['cartItems'][$movieId])) {
+                // If the item is already in the cart, increment the quantity
+                $_SESSION['cartItems'][$movieId]['quantity']++;
+            } else {
+                // If the item is not in the cart, add it as a new item
+                $_SESSION['cartItems'][$movieId] = ['id' => $movieId, 'quantity' => 1];
+            }
+            array_push($_SESSION['cartItems'], );
+            print_r($_SESSION['cartItems']);
+        }
+        //require __DIR__ . '/../views/order/index.php';
+    }
+    public function manageMovies()
+    {
+        $model = $this->movieservice->getAll();
+        require __DIR__ . '/../views/admin/moviesmanagement.php';
+    }
+    public function deleteMovie(){
+        $id = $_GET['id'];
+        $this->movieservice->deleteMovie($id);
+    }
+    public function editMovie(){
+
+    }
 
 }
+
+
+
+
+
+// public function addMovieToCart()
+    // { 
+    //     if (!isset($_SESSION['cartItems'])) {
+    //     $_SESSION ['cartItems'] = array ();
+    // }
+    //     if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
+    //         $movie = $this->movieservice->getMovie($_GET['id']);
+    //         $_SESSION['cartItems'][] = $movie;
+    //         array_push($_SESSION['cartItems'], $movie);
+    //         //print_r($myArray);
+    //     }
+
+    //     require __DIR__ . '/../views/order/index.php';
+    // }

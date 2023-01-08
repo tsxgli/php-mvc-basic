@@ -3,17 +3,17 @@ class SwitchRouter
 {
     public function route($uri)
     {
-       
+
         $uri = $this->stripParameters($uri);
 
         switch ($uri) {
             case '':
             case 'home':
             case 'home/index':
-                    require __DIR__ . '/../controllers/logincontroller.php';
-                    $controller = new LoginController();
-                    $controller->validateUser();
-                    break; 
+                require __DIR__ . '/../controllers/logincontroller.php';
+                $controller = new LoginController();
+                $controller->validateUser();
+                break;
             case 'movies':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
@@ -69,7 +69,6 @@ class SwitchRouter
             case 'cart':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
-                
                 $controller->addMovieToCart();
                 break;
             case 'logout':
@@ -77,11 +76,31 @@ class SwitchRouter
                 $controller = new LoginController();
                 $controller->logout();
                 break;
-            case 'admin':
+            case 'admin/index':
                 require __DIR__ . '/../controllers/usercontroller.php';
                 $controller = new UserController();
                 $controller->adminIndex();
                 break;
+            case 'admin/orderhistory':
+                require __DIR__ . '/../controllers/usercontroller.php';
+                $controller = new UserController();
+                $controller->adminIndex();
+                break;
+            case 'admin/manageusers':
+                require __DIR__ . '/../controllers/usercontroller.php';
+                $controller = new UserController();
+                $controller->manageUsers();
+                break;
+            case 'admin/managemovies':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->manageMovies();
+                break;
+                case 'admin/deleteMovie':
+                    require __DIR__ . '/../controllers/moviecontroller.php';
+                    $controller = new MovieController();
+                    $controller->deleteMovie();
+                    break;
             default:
                 http_response_code(404);
                 break;

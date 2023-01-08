@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../repositories/userrepository.php';
 
-class RegisterService {
+class UserService {
     
     private $repository;
     function __construct()

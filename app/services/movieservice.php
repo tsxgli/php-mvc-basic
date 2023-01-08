@@ -18,4 +18,7 @@ class MovieService {
     public function getMovie($id) {
         return $this->repository->getMovie($id);
     }
+    public function deleteMovie($id){
+        $this->repository->deleteMovie($id);
+    }
 }

@@ -2,9 +2,11 @@
 require __DIR__ . '/repository.php';
 require __DIR__ . '/../models/movie.php';
 
-class MovieRepository extends Repository {
+class MovieRepository extends Repository
+{
 
-    function getAll() {
+    function getAll()
+    {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM Movie");
             $stmt->execute();
@@ -14,12 +16,12 @@ class MovieRepository extends Repository {
 
             return $movies;
 
-        } catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             echo $e;
         }
     }
-    function filterMovies($filter){
+    function filterMovies($filter)
+    {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM Movie where genre = :filter");
             $stmt->bindValue(':filter', $filter);
@@ -30,12 +32,12 @@ class MovieRepository extends Repository {
 
             return $movies;
 
-        } catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             echo $e;
         }
     }
-    function getMovie($id){
+    function getMovie($id)
+    {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM Movie where _id = :id");
             $stmt->bindValue(':id', $id);
@@ -46,9 +48,21 @@ class MovieRepository extends Repository {
 
             return $movies;
 
-        } catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             echo $e;
         }
+    }
+
+    public function deleteMovie($id)
+    {
+        try{
+            $stmt = $this->connection->prepare("Delete from Movie where _id=:id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }        
+         catch (PDOException $e) {
+            echo $e;
+        }
+      
     }
 }
