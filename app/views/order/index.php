@@ -31,8 +31,7 @@ include __DIR__ . '/../header.php';
 
                                         <?php
                       foreach($_SESSION['cartItems']as $cartItem);
-                      {
-
+                      {                        
                     ?>
 
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">

@@ -25,6 +25,7 @@ include __DIR__ . '/../header.php';
         <div class="container">
             <div class="row">
                 <?php
+            
                 foreach ($model as $movie) {
                     ?>
                 <div class="col-3">

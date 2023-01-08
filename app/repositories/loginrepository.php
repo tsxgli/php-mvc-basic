@@ -58,7 +58,7 @@ class LoginRepository extends Repository
             //$stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
             $row = $stmt->fetch();
             if (is_null($row['password'])) {
-                return null;
+                return;
             }
             else if (password_verify($password, $row['password'])) {
                 return $row;

@@ -1,3 +1,8 @@
+<?php
+if (!(isset($_SESSION))) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +46,9 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="row">
+                       
                         <div class="col">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <a class="btn btn-outline-success my-2 my-sm-0" href="/cart"  type="submit">Cart</a>
                         </div>
                         <div class="col">
                             <div class="nav-item dropdown">
@@ -55,8 +58,17 @@
                                         alt="Login icon" width="30">
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item">Logged in: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
+                                    <a class="dropdown-item" <?php if (is_null($_SESSION['loggedInUser'])) { ?> hidden
+                                        <?php } ?>>Logged in: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
+                                   
+                                    <a class="dropdown-item" name="admin"
+                                        <?php if ($_SESSION['loggedInUser']['isAdmin'] == '0'){ ?> hidden
+                                        <?php }?>>Admin settings</a>
+                                    <a class="dropdown-item" name="admin"
+                                        <?php if (!is_null($_SESSION['loggedInUser'])){ ?> hidden <?php }?> href="/admin/index">Admin
+                                        settings</a>
                                     <a class="dropdown-item" style="background:#F08181;" href="/logout">Log out</a>
+
                                 </div>
                             </div>
 
@@ -71,3 +83,4 @@
     </nav>
 
     <div class="container">
+

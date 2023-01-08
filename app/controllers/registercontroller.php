@@ -27,6 +27,8 @@ class RegisterController
             $user->setIsAdmin(false);
             $this->registerService->registerUser($user);
             
+            echo " <script type='text/javascript'>alert('Account successfully registered.');</script>";
+
             // navigate to login page after register
             echo "<script>location.href='/login'</script>";
         }

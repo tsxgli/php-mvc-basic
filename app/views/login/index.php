@@ -1,7 +1,4 @@
-<?php
-session_start();
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,9 +55,6 @@ session_start();
                                                 });
                                             </script>
 
-                                    <p class="small mb-5 pb-lg-2">
-                                        <a class="text-white-50" href="#!">Forgot password?</a>
-                                    </p>
                                     <button class="btn btn-outline-light btn-lg px-5" name="loginButton"id="loginButton" type="submit">Login</button>
                                 </div>
 

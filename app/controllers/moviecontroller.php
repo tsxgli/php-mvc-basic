@@ -28,14 +28,36 @@ class MovieController
     }
     public function addMovieToCart()
     { 
+        if (!isset($_SESSION['cartItems'])) {
+        $_SESSION ['cartItems'] = array ();
+    }
         if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
-            
             $movie = $this->movieservice->getMovie($_GET['id']);
-            if (!isset($_SESSION['cartItems']) || !in_array($movie, $_SESSION['cartItems'])) {
-                $_SESSION['cartItems'][] = $movie;
-              }
-          
+            $_SESSION['cartItems'][] = $movie;
+            array_push($_SESSION['cartItems'], $movie);
+            //print_r($myArray);
         }
+       
         require __DIR__ . '/../views/order/index.php';
     }
+    // public function addMovieToCart()
+    // { 
+    //     // if (!isset($_SESSION['cartItems'])) {
+    //     //     $_SESSION ['cartItems'] = array ();
+    //     // }
+    //     // if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
+    //     //     $movie = $this->movieservice->getMovie($_GET['id']);
+    //     //     $_SESSION['cartItems'] = $movie;  
+    //     // }
+
+    //     if (isset($_POST["buyMovieBtn"])) {
+    //         // Check the item is not already in the cart
+    //         if (!in_array($_POST ['buyMovieBtn'],$_SESSION['cartItems'])) {
+    //             // Add new item to cart
+    //             $_SESSION ['cartItems'][] = $_POST['buyMovieBtn'];
+    //         }
+    //     }
+    //     require __DIR__ . '/../views/order/index.php';
+    // }
+
 }

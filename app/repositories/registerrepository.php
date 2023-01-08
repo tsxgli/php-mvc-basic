@@ -7,7 +7,7 @@ class RegisterRepository extends Repository
     function registerUser(User $user)
     {
         try {
-            $stmt = $this->connection->prepare('INSERT INTO Users (firstname, lastname,email, password, isAdmin, address,postcode, birthdate) 
+            $stmt = $this->connection->prepare('INSERT INTO User (firstname, lastname,email, password, isAdmin, address,postcode, birthdate) 
                                                     VALUES ( :firstname,:lastname, :email, :password, :isAdmin, :address, :postcode, :birthdate);');
 
             $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
