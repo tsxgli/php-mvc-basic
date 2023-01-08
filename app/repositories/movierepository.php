@@ -44,9 +44,9 @@ class MovieRepository extends Repository
             $stmt->execute();
 
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'Movie');
-            $movies = $stmt->fetchAll();
+            $movie = $stmt->fetchAll();
 
-            return $movies;
+            return $movie;
 
         } catch (PDOException $e) {
             echo $e;

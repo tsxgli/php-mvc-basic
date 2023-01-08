@@ -57,7 +57,10 @@ class MovieController
         $this->movieservice->deleteMovie($id);
     }
     public function editMovie(){
-
+        $id = $_GET['id'];
+        $model = $this->movieservice->getMovie($id);
+        require __DIR__ . '/../views/admin/editmovie.php';
+     
     }
 
 }

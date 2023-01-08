@@ -30,7 +30,9 @@ class LoginController
     }
     public function logout()
     {
+       
         unset($_SESSION['loggedInUser']);
+        //session_destroy();
         $_SESSION = array();
         echo " <script type='text/javascript'>alert('You have successfully logged out.');</script>";
         echo "<script>location.href='/'</script>";    

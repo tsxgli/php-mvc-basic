@@ -96,11 +96,16 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->manageMovies();
                 break;
-                case 'admin/deleteMovie':
-                    require __DIR__ . '/../controllers/moviecontroller.php';
-                    $controller = new MovieController();
-                    $controller->deleteMovie();
-                    break;
+            case 'admin/deleteMovie':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->deleteMovie();
+                break;
+            case 'admin/editMovie':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->editMovie();
+                break;
             default:
                 http_response_code(404);
                 break;
