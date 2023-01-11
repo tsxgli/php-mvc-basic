@@ -31,19 +31,19 @@ class MovieController
     public function addMovieToCart()
     {
         $movieId = $_GET['id'];
+        $movie = $this->movieservice->getMovie($movieId);
         if (!isset($_SESSION['cartItems'])) {
             $_SESSION['cartItems'] = array();
         }
         if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
             if (isset($_SESSION['cartItems'][$movieId])) {
-                // If the item is already in the cart, increment the quantity
+
                 $_SESSION['cartItems'][$movieId]['quantity']++;
             } else {
-                // If the item is not in the cart, add it as a new item
                 $_SESSION['cartItems'][$movieId] = ['id' => $movieId, 'quantity' => 1];
             }
-            array_push($_SESSION['cartItems'], );
-            print_r($_SESSION['cartItems']);
+            array_push($_SESSION['cartItems'],$movie );
+           // print_r($_SESSION['cartItems']);
         }
             require __DIR__ . '/../views/order/index.php';
     }
@@ -73,7 +73,6 @@ class MovieController
         $movie->genre = $_POST['editGenre'];
         $movie->rating = $_POST['editRating'];
         $movie->$price = $_POST['editPrice'];
-     
     }
 
 }

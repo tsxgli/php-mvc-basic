@@ -14,6 +14,7 @@ include __DIR__ . '/../header.php';
 </head>
 
 <body>
+<?php  print_r($_SESSION['cartItems']);?>
     <section class="h-100 h-custom" style="background-color: #00C0DB;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -31,7 +32,8 @@ include __DIR__ . '/../header.php';
 
                                         <?php
                       foreach($_SESSION['cartItems']as $cartItem);
-                      {                        
+                      {
+                                          
                     ?>
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
