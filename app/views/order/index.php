@@ -33,7 +33,6 @@ include __DIR__ . '/../header.php';
                       foreach($_SESSION['cartItems']as $cartItem);
                       {                        
                     ?>
-
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
                                                 <img src="/images<?='/'. $cartItem[0]->getImage()?>"

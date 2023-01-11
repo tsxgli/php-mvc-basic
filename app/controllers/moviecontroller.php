@@ -45,7 +45,7 @@ class MovieController
             array_push($_SESSION['cartItems'], );
             print_r($_SESSION['cartItems']);
         }
-        //require __DIR__ . '/../views/order/index.php';
+            require __DIR__ . '/../views/order/index.php';
     }
     public function manageMovies()
     {
@@ -59,7 +59,20 @@ class MovieController
     public function editMovie(){
         $id = $_GET['id'];
         $model = $this->movieservice->getMovie($id);
+        require __DIR__ . '/../views/admin/editmovie.php'; 
+    }
+
+    public function updateMovie(){
         require __DIR__ . '/../views/admin/editmovie.php';
+        require __DIR__ . '/../models/movie.php';
+        $movie = new Movie();
+        $movie->title = $_POST['editTitle'];
+        $movie->description = $_POST['editDescription'];
+        $movie->director = $_POST['editDirector'];
+        $movie->dateProduced = $_POST['editDateProduced'];
+        $movie->genre = $_POST['editGenre'];
+        $movie->rating = $_POST['editRating'];
+        $movie->$price = $_POST['editPrice'];
      
     }
 

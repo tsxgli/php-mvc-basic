@@ -55,14 +55,25 @@ class MovieRepository extends Repository
 
     public function deleteMovie($id)
     {
-        try{
+        try {
             $stmt = $this->connection->prepare("Delete from Movie where _id=:id");
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-        }        
-         catch (PDOException $e) {
+        } catch (PDOException $e) {
             echo $e;
         }
-      
+
     }
+
+    public function updateMovie()
+    {
+        $updateSQL = $this->connection->prepare("UPDATE  Posts SET name=:name, message=:message, ip=:ip, posted_at=:posted_at where id=:id");
+        $updateSQL->bindParam(':name', $name);
+        $updateSQL->bindParam(':id', $id);
+        $updateSQL->bindParam(':message', $message);
+        $updateSQL->bindParam(':posted_at', $datePosted);
+        $updateSQL->bindParam(':ip', $ip);
+        $updateSQL->execute();
+    }
+
 }
