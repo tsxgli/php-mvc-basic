@@ -10,7 +10,7 @@ class SwitchRouter
             case '':
             case 'home':
             case 'home/index':
-                if(!empty($_SESSION['loggedInUser'])){
+                if (!empty($_SESSION['loggedInUser'])) {
                     require __DIR__ . '/../controllers/moviecontroller.php';
                     $controller = new MovieController();
                     $controller->index();
@@ -21,7 +21,6 @@ class SwitchRouter
                     $controller->validateUser();
                     break;
                 }
-              
             case 'movies':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
@@ -79,11 +78,11 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->addMovieToCart();
                 break;
-                case 'cartItems':
-                    require __DIR__ . '/../controllers/moviecontroller.php';
-                    $controller = new MovieController();
-                    $controller->showCartItems();
-                    break;
+            case 'cartItems':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->showCartItems();
+                break;
             case 'logout':
                 require __DIR__ . '/../controllers/logincontroller.php';
                 $controller = new LoginController();
@@ -118,6 +117,11 @@ class SwitchRouter
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
                 $controller->editMovie();
+                break;
+            case 'admin/updateMovie':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->updateMovie();
                 break;
             default:
                 http_response_code(404);

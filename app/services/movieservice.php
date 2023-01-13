@@ -21,4 +21,7 @@ class MovieService {
     public function deleteMovie($id){
         $this->repository->deleteMovie($id);
     }
+    public function updateMovie($movie){
+        $this->repository->updateMovie($movie);
+    }
 }

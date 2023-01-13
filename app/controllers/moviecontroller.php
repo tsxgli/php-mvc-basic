@@ -28,23 +28,7 @@ class MovieController
         require __DIR__ . '/../views/home/detail.php';
     }
 
-    public function addMovieToCart()
-    {
-        $movieId = $_GET['id'];
-        $movie = $this->movieservice->getMovie($movieId);
-        if (!isset($_SESSION['cartItems'])) {
-            $_SESSION['cartItems'] = array();
-        }
-        if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
-            if (isset($_SESSION['cartItems'][$movieId])) {
-                $_SESSION['cartItems'][$movieId]['quantity']++;
-            } else
-                $_SESSION['cartItems'][$movieId] = ['id' => $movieId, 'quantity' => 1];
-        }
-        array_push($_SESSION['cartItems'], $movie);
-           echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
 
-    }
     public function manageMovies()
     {
         $model = $this->movieservice->getAll();
@@ -64,24 +48,53 @@ class MovieController
 
     public function updateMovie()
     {
-        require __DIR__ . '/../views/admin/editmovie.php';
-        require __DIR__ . '/../models/movie.php';
-        $movie = new Movie();
-        $movie->title = $_POST['editTitle'];
-        $movie->description = $_POST['editDescription'];
-        $movie->director = $_POST['editDirector'];
-        $movie->dateProduced = $_POST['editDateProduced'];
-        $movie->genre = $_POST['editGenre'];
-        $movie->rating = $_POST['editRating'];
-        $movie->$price = $_POST['editPrice'];
+       
+
+        $movie = new Movie();   
+        $movie->setTitle($_POST['editTitle']) ;
+        $movie->setDescription($_POST['editDescription']);
+        $movie->setDirector($_POST['editDirector']);
+        $movie->setDateProduced($_POST['editDateProduced']);
+        $movie->setGenre( $_POST['editGenre']);
+        $movie->setRating($_POST['editRating']);
+        $movie->setPrice($_POST['editPrice']);
+        var_dump($movie);
+        rename($_FILES['imageSelector'], "/images/".$movie->getTitle().".jpg");
+        $this->movieservice->updateMovie($movie);
+        echo'<div class="alert alert-success" role="alert">Successfully updated movie. </div>';
+   
     }
-    
-    public function showCartItems(){
+
+    public function showCartItems()
+    {
         require __DIR__ . '/../views/order/index.php';
     }
+
+
+    public function addMovieToCart()
+    {
+        $movieId = $_GET['id'];
+
+        $movie = $this->movieservice->getMovie($movieId);
+        if (!isset($_SESSION['cartItems'])) {
+            $_SESSION['cartItems'] = array();
+        }
+        if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
+            $movieExists = false;
+            if (isset($_SESSION['cartItems'])) {
+                foreach ($_SESSION['cartItems'] as $cartItem) {
+                    if ($cartItem['Movie']->get_id() == $movieId) {
+                        $cartItem['quantity']++;
+                        $movieExists = true;
+                        break;
+                    }
+                }
+            }
+            if (!$movieExists) {
+                array_push($_SESSION['cartItems'], [$movie, 'quantity' => 1]);
+            }
+        }
+        echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
+    }
+    
 }
-
-
-
-
-

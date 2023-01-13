@@ -1,8 +1,8 @@
 <?php
-require __DIR__ . '/../routers/switchrouter.php';
 
+require __DIR__ . '/../routers/switchrouter.php';
+session_start();
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 
-session_start();
 $router = new SwitchRouter();
 $router->route($uri);

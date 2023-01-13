@@ -106,19 +106,42 @@
 sendMail();
 
 
+version 1
 
+    // public function addMovieToCart()
+    // {
+    //     $movieId = $_GET['id'];
+    //     $movie = $this->movieservice->getMovie($movieId);
+    //     if (!isset($_SESSION['cartItems'])) {
+    //         $_SESSION['cartItems'] = array();
+    //     }
+    //     if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
+    //         if (isset($_SESSION['cartItems'])) {
+    //             $_SESSION['cartItems']['quantity']++;
+    //         } else
+    //             $_SESSION['cartItems'] = ['quantity' => 1];
+    //     }
+    //     array_push($_SESSION['cartItems'], $movie);
+    //        echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
+    //}
 
-// public function addMovieToCart()
-// { 
-//     if (!isset($_SESSION['cartItems'])) {
-//     $_SESSION ['cartItems'] = array ();
-// }
-//     if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
-//         $movie = $this->movieservice->getMovie($_GET['id']);
-//         $_SESSION['cartItems'][] = $movie;
-//         array_push($_SESSION['cartItems'], $movie);
-//         //print_r($myArray);
-//     }
+    
+    
+    version 2
+        // public function addMovieToCart()
+    // {
+    //     $movieId = $_GET['id'];
+    //     $movie = $this->movieservice->getMovie($movieId);
+    //     if (!isset($_SESSION['cartItems'])) {
+    //         $_SESSION['cartItems'] = array();
+    //     }
+    //     if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
+    //         if (isset($_SESSION['cartItems'][$movieId])) {
+    //             $_SESSION['cartItems'][$movieId]['quantity']++;
+    //         } else
+    //             $_SESSION['cartItems'][$movieId] = ['id' => $movieId, 'quantity' => 1];
+    //     }
+    //     array_push($_SESSION['cartItems'], $movie);
+    //        echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
 
-//     require __DIR__ . '/../views/order/index.php';
-// }
+    // }

@@ -64,16 +64,21 @@ class MovieRepository extends Repository
         }
 
     }
+    public function updateMovie($movie) {
+        $stmt = $this->connection ->prepare("UPDATE Movie SET title = :title, description = :description, 
+                                    director = :director, dateProduced = :dateProduced, 
+                                    genre = :genre, rating = :rating, price = :price WHERE _id = :id");
+        $stmt->bindParam(':id', $movie->get_id());
+        $stmt->bindParam(':title', $movie->getTitle());
+        $stmt->bindParam(':description', $movie->getDescription());
+        $stmt->bindParam(':director', $movie->getDirector());
+        $stmt->bindParam(':dateProduced', $movie->getDateProduced());
+        $stmt->bindParam(':genre', $movie->getGenre());
+        $stmt->bindParam(':rating', $movie->getRating());
+        $stmt->bindParam(':price', $movie->getPrice());
+        $stmt->execute();
 
-    public function updateMovie()
-    {
-        $updateSQL = $this->connection->prepare("UPDATE  Posts SET name=:name, message=:message, ip=:ip, posted_at=:posted_at where id=:id");
-        $updateSQL->bindParam(':name', $name);
-        $updateSQL->bindParam(':id', $id);
-        $updateSQL->bindParam(':message', $message);
-        $updateSQL->bindParam(':posted_at', $datePosted);
-        $updateSQL->bindParam(':ip', $ip);
-        $updateSQL->execute();
+        echo "movie updated";
     }
 
 }
