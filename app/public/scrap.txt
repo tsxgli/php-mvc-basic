@@ -104,3 +104,21 @@
 }
 
 sendMail();
+
+
+
+
+// public function addMovieToCart()
+// { 
+//     if (!isset($_SESSION['cartItems'])) {
+//     $_SESSION ['cartItems'] = array ();
+// }
+//     if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
+//         $movie = $this->movieservice->getMovie($_GET['id']);
+//         $_SESSION['cartItems'][] = $movie;
+//         array_push($_SESSION['cartItems'], $movie);
+//         //print_r($myArray);
+//     }
+
+//     require __DIR__ . '/../views/order/index.php';
+// }

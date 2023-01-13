@@ -44,7 +44,7 @@
                     <div class="row">
 
                         <div class="col">
-                            <a class="btn btn-outline-success my-2 my-sm-0" href="/cart" type="submit">Cart</a>
+                            <a class="btn btn-outline-success my-2 my-sm-0" href="/cartItems" type="submit">Cart</a>
                         </div>
                         <div class="col">
                             <div class="nav-item dropdown">

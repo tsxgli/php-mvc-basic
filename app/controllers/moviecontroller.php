@@ -37,32 +37,33 @@ class MovieController
         }
         if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
             if (isset($_SESSION['cartItems'][$movieId])) {
-
                 $_SESSION['cartItems'][$movieId]['quantity']++;
-            } else {
+            } else
                 $_SESSION['cartItems'][$movieId] = ['id' => $movieId, 'quantity' => 1];
-            }
-            array_push($_SESSION['cartItems'],$movie );
-           // print_r($_SESSION['cartItems']);
         }
-            require __DIR__ . '/../views/order/index.php';
+        array_push($_SESSION['cartItems'], $movie);
+           echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
+
     }
     public function manageMovies()
     {
         $model = $this->movieservice->getAll();
         require __DIR__ . '/../views/admin/moviesmanagement.php';
     }
-    public function deleteMovie(){
+    public function deleteMovie()
+    {
         $id = $_GET['id'];
         $this->movieservice->deleteMovie($id);
     }
-    public function editMovie(){
+    public function editMovie()
+    {
         $id = $_GET['id'];
         $model = $this->movieservice->getMovie($id);
-        require __DIR__ . '/../views/admin/editmovie.php'; 
+        require __DIR__ . '/../views/admin/editmovie.php';
     }
 
-    public function updateMovie(){
+    public function updateMovie()
+    {
         require __DIR__ . '/../views/admin/editmovie.php';
         require __DIR__ . '/../models/movie.php';
         $movie = new Movie();
@@ -74,24 +75,13 @@ class MovieController
         $movie->rating = $_POST['editRating'];
         $movie->$price = $_POST['editPrice'];
     }
-
+    
+    public function showCartItems(){
+        require __DIR__ . '/../views/order/index.php';
+    }
 }
 
 
 
 
 
-// public function addMovieToCart()
-    // { 
-    //     if (!isset($_SESSION['cartItems'])) {
-    //     $_SESSION ['cartItems'] = array ();
-    // }
-    //     if (isset($_POST['buyMovieBtn'])||isset($_POST['buyMovieBtnHome'])) {
-    //         $movie = $this->movieservice->getMovie($_GET['id']);
-    //         $_SESSION['cartItems'][] = $movie;
-    //         array_push($_SESSION['cartItems'], $movie);
-    //         //print_r($myArray);
-    //     }
-
-    //     require __DIR__ . '/../views/order/index.php';
-    // }

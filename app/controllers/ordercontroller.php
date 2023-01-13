@@ -32,9 +32,9 @@ class OrderController
         $movieId = htmlspecialchars($_POST['movieId']);
 
         // Load the movie model
-        $movieModel = $this->model('Movie');
+      
         // Get the movie object from the database using the movie id
-        $movie = $movieModel->getById($movieId);
+        $movie = $this->orderService->getById($movieId);
 
         // Start the session
         // Check if the cart session variable exists
@@ -48,7 +48,7 @@ class OrderController
         // Redirect the user back to the detail page
         header('Location: /movies/detail/' . $movieId);
 
-        echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
+     
     }
 }
 

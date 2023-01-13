@@ -10,10 +10,18 @@ class SwitchRouter
             case '':
             case 'home':
             case 'home/index':
-                require __DIR__ . '/../controllers/logincontroller.php';
-                $controller = new LoginController();
-                $controller->validateUser();
-                break;
+                if(!empty($_SESSION['loggedInUser'])){
+                    require __DIR__ . '/../controllers/moviecontroller.php';
+                    $controller = new MovieController();
+                    $controller->index();
+                    break;
+                } else {
+                    require __DIR__ . '/../controllers/logincontroller.php';
+                    $controller = new LoginController();
+                    $controller->validateUser();
+                    break;
+                }
+              
             case 'movies':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
@@ -71,6 +79,11 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->addMovieToCart();
                 break;
+                case 'cartItems':
+                    require __DIR__ . '/../controllers/moviecontroller.php';
+                    $controller = new MovieController();
+                    $controller->showCartItems();
+                    break;
             case 'logout':
                 require __DIR__ . '/../controllers/logincontroller.php';
                 $controller = new LoginController();
