@@ -1,9 +1,9 @@
 <?php
 class User{
 	private int $_id;
-    private string $firstName;
-    private string $lastName;
-    private string $postCode;
+    private string $firstname;
+    private string $lastname;
+    private string $postcode;
     private string $address; 
     private string $birthdate;
     private string $email;
@@ -16,34 +16,11 @@ class User{
 	/**
 	 * @return string
 	 */
-	public function getFirstName(): string {
-		return $this->firstName;
-	}
-	
-	/**
-	 * @param string $firstName 
-	 * @return self
-	 */
-	public function setFirstName(string $firstName): self {
-		$this->firstName = $firstName;
-		return $this;
-	}
 
 	/**
 	 * @return string
 	 */
-	public function getLastName(): string {
-		return $this->lastName;
-	}
 	
-	/**
-	 * @param string $lastName 
-	 * @return self
-	 */
-	public function setLastName(string $lastName): self {
-		$this->lastName = $lastName;
-		return $this;
-	}
 
 	/**
 	 * @return string
@@ -154,6 +131,38 @@ class User{
 	 */
 	public function set_id(int $_id): self {
 		$this->_id = $_id;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFirstname(): string {
+		return $this->firstname;
+	}
+	
+	/**
+	 * @param string $firstname 
+	 * @return self
+	 */
+	public function setFirstname(string $firstname): self {
+		$this->firstname = $firstname;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLastname(): string {
+		return $this->lastname;
+	}
+	
+	/**
+	 * @param string $lastname 
+	 * @return self
+	 */
+	public function setLastname(string $lastname): self {
+		$this->lastname = $lastname;
 		return $this;
 	}
 }

@@ -123,6 +123,16 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->updateMovie();
                 break;
+                case 'admin/editUser':
+                    require __DIR__ . '/../controllers/usercontroller.php';
+                    $controller = new UserController();
+                    $controller->editUser();
+                    break;
+                case 'admin/deleteUser':
+                    require __DIR__ . '/../controllers/usercontroller.php';
+                    $controller = new UserController();
+                    $controller->deleteUser();
+                    break;
             default:
                 http_response_code(404);
                 break;

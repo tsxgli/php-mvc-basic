@@ -8,6 +8,11 @@ class UserService {
     {
         $this->repository = new UserRepository();
     }
+    function getAll(){
+        return $this->repository->getAll();
+    }
    
-    
+    function deleteUser($id){
+        return $this->repository->deleteUser($id);
+    }
 }

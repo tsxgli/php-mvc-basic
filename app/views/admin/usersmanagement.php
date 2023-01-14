@@ -14,45 +14,44 @@ include __DIR__ . '/../header.php';
 </head>
 
 <body>
-    <form method="POST">
-
-
-    <div class="container my-5">
-        <h2>Edit Post</h2>
-        <form method="GET">
-            <div class="row mb-3">
-                <div class="offset-sm-3 col-sm-3 d-grid">
-                    <label for="id">ID</label><br>
-                    <input type="text" id="id" name="id" value="<?php echo "name"?>"><br>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="offset-sm-3 col-sm-3 d-grid">
-                    <label class="col-sm-3 col-form-label">Message</label><br>
-                    <input type="text" id="id" name="id" value="<?php echo "wjaht"?>"><br>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="offset-sm-3 col-sm-3 d-grid">
-                    <label for="birthdate">Date Posted</label><br>
-                    <input type="text" id="birthdate" name="birthdate" value="<?php echo "22-22-22"?>"><br>
-                </div>
-            </div>
-
- <div class="row mb-3">
-                <div class="offset-sm-3 col-sm-3 d-grid">
-                    <button type="submit" class="btn btn-primary" > Submit</button><br>
-                </div>
-                <div class="col-sm-3 ">
-                    <a class="btn btn-outline-primary" href="management.php">Cancel</a>
-                </div>
-            </div>
-
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    foreach ($model as $user) {
+    ?>
+    <tr>
+      <td><?php echo $user->getFirstName(); ?></td>
+      <td><?php echo $user->getLastName(); ?></td>
+      <td><?php echo $user->getEmail(); ?></td>
+      <td>
+        <div class="row">
+            <div class="col">
+            <form action="/admin/editUser?id=<?php echo $user->get_id();?>" method="post">
+          <input type="hidden" name="user_id" value="<?php echo $user->get_id(); ?>">
+          <input type="submit" name="edit_user" value="Edit" class="btn btn-primary">
         </form>
-    </div>
+            </div>
+        <div class="col">
+        <form action="/admin/deleteUser?id=<?php echo $user->get_id();?>" method="post">
+          <input type="hidden" name="user_id" value="<?php echo $user->get_id(); ?>">
+          <input type="submit" name="delete_user" value="Delete" class="btn btn-danger">
+        </form>
+        </div>
+       
+        </div>
+      </td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
-
-    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
@@ -62,3 +61,6 @@ include __DIR__ . '/../header.php';
 <?php
 include __DIR__ . '/../footer.php';
 ?>
+
+
+

@@ -116,10 +116,11 @@ class MovieController
             $image = $_POST['editImage'];
             $this->movieservice->updateMovie($id,$title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
             echo'<div class="alert alert-success" role="alert">Successfully updated movie. </div>';
+
         }else{
             echo'<div class="alert alert-danger" role="alert">Could not update movie. </div>';
-
         }
+        require __DIR__ . '/../views/admin/managemovies.php';
     }
     
     
