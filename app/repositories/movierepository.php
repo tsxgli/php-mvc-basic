@@ -62,23 +62,50 @@ class MovieRepository extends Repository
         } catch (PDOException $e) {
             echo $e;
         }
-
     }
-    public function updateMovie($movie) {
-        $stmt = $this->connection ->prepare("UPDATE Movie SET title = :title, description = :description, 
+    // public function updateMovie($movie)
+    // {
+    //     try {
+    //         $stmt = $this->connection->prepare("UPDATE Movie SET title = :title, description = :description, 
+    //                                 director = :director, dateProduced = :dateProduced, 
+    //                                 genre = :genre, rating = :rating, price = :price WHERE _id = :id");
+    //         $stmt->bindParam(':id', $movie['_id']);
+    //         $stmt->bindParam(':title', $movie['title']);
+    //         $stmt->bindParam(':description', $movie['description']);
+    //         $stmt->bindParam(':director', $movie['director']);
+    //         $stmt->bindParam(':dateProduced', $movie['dateProduced']);
+    //         $stmt->bindParam(':genre', $movie['genre']);
+    //         $stmt->bindParam(':rating', $movie['rating']);
+    //         $stmt->bindParam(':price', $movie['price']);
+    //         $stmt->bindParam(':image', $movie['image']);
+    //         $stmt->execute();
+
+    //         echo "movie updated";
+    //     } catch (PDOException $e) {
+    //         echo $e;
+    //     }
+    // }
+
+    public function updateMovie($id,$title,$description,$genre,$rating,$dateProduced,$price,$director,$image){
+
+        try {
+            $stmt = $this->connection->prepare("UPDATE Movie SET title = :title, description = :description, 
                                     director = :director, dateProduced = :dateProduced, 
-                                    genre = :genre, rating = :rating, price = :price WHERE _id = :id");
-        $stmt->bindParam(':id', $movie->get_id());
-        $stmt->bindParam(':title', $movie->getTitle());
-        $stmt->bindParam(':description', $movie->getDescription());
-        $stmt->bindParam(':director', $movie->getDirector());
-        $stmt->bindParam(':dateProduced', $movie->getDateProduced());
-        $stmt->bindParam(':genre', $movie->getGenre());
-        $stmt->bindParam(':rating', $movie->getRating());
-        $stmt->bindParam(':price', $movie->getPrice());
-        $stmt->execute();
+                                    genre = :genre, image=:image,rating = :rating, price = :price WHERE _id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':description',$description);
+            $stmt->bindParam(':director', $director);
+            $stmt->bindParam(':dateProduced', $dateProduced);
+            $stmt->bindParam(':genre', $genre);
+            $stmt->bindParam(':rating', $rating);
+            $stmt->bindParam(':price', $price);
+            $stmt->bindParam(':image',$image);
+            $stmt->execute();
 
-        echo "movie updated";
+           
+        } catch (PDOException $e) {
+            echo "Something went wrong updating the movies: ".$e;
+        }
     }
-
 }

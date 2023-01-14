@@ -7,7 +7,6 @@ class MovieService {
     function __construct()
     {
         $this->repository = new MovieRepository();
-  
     }
     public function getAll() {
         return $this->repository->getAll();
@@ -21,7 +20,8 @@ class MovieService {
     public function deleteMovie($id){
         $this->repository->deleteMovie($id);
     }
-    public function updateMovie($movie){
-        $this->repository->updateMovie($movie);
+    public function updateMovie( $id,$title, $description, $genre, $rating, $dateProduced, $price, $director, $image)
+    {
+        $this->repository->updateMovie($id,$title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
     }
 }

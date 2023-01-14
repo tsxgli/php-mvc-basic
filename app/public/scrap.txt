@@ -145,3 +145,22 @@ version 1
     //        echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
 
     // }
+
+
+
+    // public function updateMovie()
+    // {
+    //     $movie = new Movie();   
+    //     $movie->setTitle(htmlspecialchars($_POST['editTitle']) );
+    //     $movie->setDescription(htmlspecialchars($_POST['editDescription']));
+    //     $movie->setDirector(htmlspecialchars($_POST['editDirector']));
+    //     $movie->setDateProduced(htmlspecialchars($_POST['editDateProduced']));
+    //     $movie->setGenre(htmlspecialchars( $_POST['editGenre']));
+    //     $movie->setRating(htmlspecialchars(($_POST['editRating'])));
+    //     $movie->setPrice(htmlspecialchars(($_POST['editPrice'])));
+    //     var_dump($movie);
+    //     rename($_FILES['imageSelector'], "/images/".$movie->getTitle().".jpg");
+    //     $this->movieservice->updateMovie($movie);
+    //     echo'<div class="alert alert-success" role="alert">Successfully updated movie. </div>';
+
+    // }

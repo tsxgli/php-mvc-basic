@@ -12,10 +12,6 @@ class Movie{
 	private string $rating;
 
 
-    public function __construct(){
-
-    }
-
 	/**
 	 * @return string
 	 */

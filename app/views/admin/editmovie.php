@@ -15,7 +15,7 @@ include __DIR__ . '/../header.php';
 
 <body>
     <section>
-        <form method="POST">
+       
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -23,6 +23,7 @@ include __DIR__ . '/../header.php';
                             style="height: 100% ;">
                     </div>
                     <div class="col">
+                    <form method="POST" action="/admin/updatemovie">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                             </div>
@@ -33,18 +34,24 @@ include __DIR__ . '/../header.php';
                         </div>
 
                         <div class="row">
+                            <input hidden type="text" class="text-center" name="editId"
+                            value="<?php echo $model[0]->get_id(); ?>"></input> 
+                            <input hidden type="text" class="text-center" name="editImage"
+                            value="<?php echo $model[0]->getImage(); ?>"></input>
+                        </div>
+                        <div class="row">
                             <h3 class="pr-1">Title</h3>
-                            <input class="text-center" name="editTitle"
-                                value="<?php echo $model[0]->getTitle(); ?>"></input>
+                            <input type="text" class="text-center" name="editTitle"
+                            value="<?php echo $model[0]->getTitle(); ?>"></input>
                         </div>
                         <div class="row">
                             <h3 class="pr-1">Description</h3>
-                            <input class="text-left ml-20" name="editDescription"
-                                value="<?php echo $model[0]->getDescription(); ?>"></input>
+                            <input type="text"class="text-left ml-20" name="editDescription"
+                            value="<?php echo $model[0]->getDescription(); ?>"></input>
                         </div>
                         <div class="row">
                             <h3>Director</h3>
-                            <input value="<?php echo $model[0]->getDirector(); ?>" name="editDirector"></input>
+                            <input type="text"value="<?php echo $model[0]->getDirector(); ?>" name="editDirector"></input>
                         </div>
                         <div class="row">
                             <h3>Date Produced</h3>
@@ -53,28 +60,27 @@ include __DIR__ . '/../header.php';
                         </div>
                         <div class="row">
                             <h3>Genre</h3>
-                            <input value="<?php echo $model[0]->getGenre(); ?>" name="editGenre"></input>
+                            <input type="text" value="<?php echo $model[0]->getGenre(); ?>" name="editGenre"></input>
                         </div>
                         <div class="row">
                             <h3>Rating</h3>
-                            <input value="<?php echo $model[0]->getRating(); ?>" name="editRating"></input>
+                            <input type="text"value="<?php echo $model[0]->getRating(); ?>" name="editRating"></input>
                         </div>
                         <div class="row">
                             <h3>Price</h3>
-                            <input value=" <?= $model[0]->getPrice() ?>" name="editPrice">
+                            <input type="text"value="<?= $model[0]->getPrice() ?>" name="editPrice">
                         </div>
+                        <br>
+                       
                         <div class="row">
-                                <br>
-                                <a type="submit" href="/admin/updateMovie" class="btn btn-warning" name="updateMovieBtn">
-                                    Update</a>
-                   
+                                <button type="submit"  class="btn btn-warning" id="updateMovieBtn"name="updateMovieBtn">Update</button>
                         </div>
+                        </form> 
                     </div>
-
                     <div class="col"></div>
                 </div>
             </div>
-        </form>
+    
     </section>
 
 </body>

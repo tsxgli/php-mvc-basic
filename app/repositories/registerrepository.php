@@ -21,8 +21,6 @@ class RegisterRepository extends Repository
 
             $stmt->execute();
 
-            
-
         } catch (PDOException $e) {
             echo "Registering user failed: " . $e->getMessage();
         }

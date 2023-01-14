@@ -118,7 +118,7 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->editMovie();
                 break;
-            case 'admin/updateMovie':
+            case 'admin/updatemovie':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();
                 $controller->updateMovie();
