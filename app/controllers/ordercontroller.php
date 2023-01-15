@@ -35,7 +35,6 @@ class OrderController
       
         // Get the movie object from the database using the movie id
         $movie = $this->orderService->getById($movieId);
-
         // Start the session
         // Check if the cart session variable exists
         if (!isset($_SESSION['cart'])) {

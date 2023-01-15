@@ -11,33 +11,6 @@ class User{
     private bool $isAdmin;
 
 
-    
-
-	/**
-	 * @return string
-	 */
-
-	/**
-	 * @return string
-	 */
-	
-
-	/**
-	 * @return string
-	 */
-	public function getPostCode(): string {
-		return $this->postCode;
-	}
-	
-	/**
-	 * @param string $postCode 
-	 * @return self
-	 */
-	public function setPostCode(string $postCode): self {
-		$this->postCode = $postCode;
-		return $this;
-	}
-
 	/**
 	 * @return string
 	 */
@@ -102,21 +75,7 @@ class User{
 		return $this;
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function getIsAdmin(): bool {
-		return $this->isAdmin;
-	}
-	
-	/**
-	 * @param bool $isAdmin 
-	 * @return self
-	 */
-	public function setIsAdmin(bool $isAdmin): self {
-		$this->isAdmin = $isAdmin;
-		return $this;
-	}
+
 
 	/**
 	 * @return int
@@ -163,6 +122,38 @@ class User{
 	 */
 	public function setLastname(string $lastname): self {
 		$this->lastname = $lastname;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPostcode(): string {
+		return $this->postcode;
+	}
+	
+	/**
+	 * @param string $postcode 
+	 * @return self
+	 */
+	public function setPostcode(string $postcode): self {
+		$this->postcode = $postcode;
+		return $this;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getIsAdmin(): bool {
+		return $this->isAdmin;
+	}
+	
+	/**
+	 * @param bool $isAdmin 
+	 * @return self
+	 */
+	public function setIsAdmin(bool $isAdmin): self {
+		$this->isAdmin = $isAdmin;
 		return $this;
 	}
 }

@@ -80,7 +80,7 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             id="passwordToggleButton">
                                                             Show password
-                                                        </button>s
+                                                        </button>
                                                     </div>
                                                 </div>
                                                 <label for="passwordInput" class="form-control-label">Password</label>

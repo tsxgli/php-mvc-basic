@@ -9,12 +9,7 @@ class LoginService {
         $this->repository = new LoginRepository();
   
     }
-    public function getAll() {
-        return $this->repository->getAll();
-    }
-    // public function validateUser(string $email, string $password): ?User {
-    //     return $this->repository->validateUser($email, $password);
-    // }
+
     public function validateUser(string $email, string $password) {
         return $this->repository->validateUser($email, $password);
     }
