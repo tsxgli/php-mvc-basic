@@ -15,7 +15,8 @@ include __DIR__ . '/../header.php';
 
 <body>
     <section>
-       <h1>Edit Movie</h1>
+       <h1>Add Movie</h1>
+
             <div class="container">
                 <div class="row">
                     <div class="col">

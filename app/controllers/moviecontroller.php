@@ -115,12 +115,12 @@ class MovieController
             }
             $image = $_POST['editImage'];
             $this->movieservice->updateMovie($id,$title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
-            echo'<div class="alert alert-success" role="alert">Successfully updated movie. </div>';
-
-        }else{
-            echo'<div class="alert alert-danger" role="alert">Could not update movie. </div>';
+            echo " <script type='text/javascript'>alert('Successfully updated movie.');</script>";
+        } else {
+            echo " <script type='text/javascript'>alert('Could not update movie.');</script>";;
         }
-        require __DIR__ . '/../views/admin/managemovies.php';
+        echo "<script>location.href='/admin/managemovies'</script>";
+
     }
     
     

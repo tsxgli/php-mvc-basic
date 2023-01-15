@@ -44,12 +44,11 @@ class UserController
                 'isAdmin' => htmlspecialchars(($_POST['isAdmin'] === "true") ? 0 : 1),
             );
             $this->userservice->updateUser($data);
-            echo '<div class="alert alert-success" role="alert">Successfully updated user. </div>';
-
+            echo " <script type='text/javascript'>alert('Successfully updated user.');</script>";
         } else {
-            echo '<div class="alert alert-danger" role="alert">Could not update user. </div>';
+            echo " <script type='text/javascript'>alert('Could not update user.');</script>";
         }
-        require __DIR__ . '/../views/admin/index.php';
+        echo "<script>location.href='/manageusers'</script>";
     }
 
     public function addUser()
@@ -69,12 +68,11 @@ class UserController
                 'isAdmin' => htmlspecialchars(($_POST['isAdmin'] === "true") ? 0 : 1),
             );
             $this->userservice->addUser($data);
-            echo '<div class="alert alert-success" role="alert">Successfully added user. </div>';
-
+            echo " <script type='text/javascript'>alert('Successfully added user.');</script>";
         } else {
-            echo '<div class="alert alert-danger" role="alert">Could not add user. </div>';
+            echo " <script type='text/javascript'>alert('Could not add user.');</script>";
         }
-        require __DIR__ . '/../views/admin/index.php';
+        echo "<script>location.href='/manageusers'</script>";
         
     }
 }
