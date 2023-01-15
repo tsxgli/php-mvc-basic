@@ -41,9 +41,8 @@ class UserController
                 'address' => htmlspecialchars($_POST['editAddress']),
                 'birthdate' => htmlspecialchars($_POST['editBirthdate']),
                 'email' => htmlspecialchars($_POST['editEmail']),
-                'isAdmin' => htmlspecialchars($_POST['isAdmin']),
+                'isAdmin' => htmlspecialchars(($_POST['isAdmin'] === "true") ? 0 : 1),
             );
-            $data['isAdmin'] = ($_POST['isAdmin'] === "true") ? 1 : 0;
             $this->userservice->updateUser($data);
             echo '<div class="alert alert-success" role="alert">Successfully updated user. </div>';
 
@@ -67,9 +66,8 @@ class UserController
                 'address' => htmlspecialchars($_POST['addAddress']),
                 'birthdate' => htmlspecialchars($_POST['addBirthdate']),
                 'email' => htmlspecialchars($_POST['addEmail']),
-                'isAdmin' => htmlspecialchars($_POST['addisAdmin']),
+                'isAdmin' => htmlspecialchars(($_POST['isAdmin'] === "true") ? 0 : 1),
             );
-            $data['isAdmin'] = ($_POST['addisAdmin'] === "true") ? 1 : 0;
             $this->userservice->addUser($data);
             echo '<div class="alert alert-success" role="alert">Successfully added user. </div>';
 
@@ -77,6 +75,7 @@ class UserController
             echo '<div class="alert alert-danger" role="alert">Could not add user. </div>';
         }
         require __DIR__ . '/../views/admin/index.php';
+        
     }
 }
 
