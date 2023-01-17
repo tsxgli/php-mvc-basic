@@ -20,7 +20,7 @@ class RegisterRepository extends Repository
             $stmt->bindValue(':isAdmin', $user->getIsAdmin(), PDO::PARAM_BOOL);
 
             $stmt->execute();
-
+            
         } catch (PDOException $e) {
             echo "Registering user failed: " . $e->getMessage();
         }

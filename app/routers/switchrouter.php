@@ -148,6 +148,26 @@ class SwitchRouter
                 $controller = new UserController();
                 $controller->addnewUser();
                 break;
+            case 'admin/addMovie':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->addMovieIndex();
+                break;
+            case 'admin/addNewMovie':
+                require __DIR__ . '/../controllers/moviecontroller.php';
+                $controller = new MovieController();
+                $controller->addMovie();
+                break;
+                case 'admin/movepicture':
+                    require __DIR__ . '/../controllers/moviecontroller.php';
+                    $controller = new MovieController();
+                    $controller->movePic();
+                    break;
+                    case 'admin/moveuploadedpicture':
+                        require __DIR__ . '/../controllers/moviecontroller.php';
+                        $controller = new MovieController();
+                        $controller->moveUploadedFile();
+                        break;
             default:
                 http_response_code(404);
                 break;

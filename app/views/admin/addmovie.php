@@ -15,73 +15,62 @@ include __DIR__ . '/../header.php';
 
 <body>
     <section>
-       <h1>Add Movie</h1>
+        <h1>Add Movie</h1>
+        <form method="POST" action="/admin/addNewMovie" enctype="multipart/form-data">
+        <div class="container">
+            <div class="row">
+                <div class="col">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <img src="/images<?='/' . $model[0]->getImage() ?>" alt="<?php $title ?>" class="img-thumbnail"
-                            style="height: 100% ;">
-                    </div>
-                    <div class="col">
-                    <form method="POST" action="/admin/updatemovie">
+                </div>
+                <div class="col">
+                 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="imageSelector" id="imageSelector">
-                                <label for="imageSelector">Choose file</label>
+                                <input type="file" class="custom-file-input" id="addImage" name="addImage">
+
                             </div>
                         </div>
-
-                        <div class="row">
-                            <input hidden type="text" class="text-center" name="editId"
-                            value="<?php echo $model[0]->get_id(); ?>"></input> 
-                            <input hidden type="text" class="text-center" name="editImage"
-                            value="<?php echo $model[0]->getImage(); ?>"></input>
-                        </div>
-                        <div class="row">
-                            <h3 class="pr-1">Title</h3>
-                            <input type="text" class="text-center" name="editTitle"
-                            value="<?php echo $model[0]->getTitle(); ?>"></input>
-                        </div>
-                        <div class="row">
-                            <h3 class="pr-1">Description</h3>
-                            <input type="text"class="text-left ml-20" name="editDescription"
-                            value="<?php echo $model[0]->getDescription(); ?>"></input>
-                        </div>
-                        <div class="row">
-                            <h3>Director</h3>
-                            <input type="text"value="<?php echo $model[0]->getDirector(); ?>" name="editDirector"></input>
-                        </div>
-                        <div class="row">
-                            <h3>Date Produced</h3>
-                            <input type="date" value="<?php echo $model[0]->getDateProduced(); ?>"
-                                name="editDateProduced"></input>
-                        </div>
-                        <div class="row">
-                            <h3>Genre</h3>
-                            <input type="text" value="<?php echo $model[0]->getGenre(); ?>" name="editGenre"></input>
-                        </div>
-                        <div class="row">
-                            <h3>Rating</h3>
-                            <input type="text"value="<?php echo $model[0]->getRating(); ?>" name="editRating"></input>
-                        </div>
-                        <div class="row">
-                            <h3>Price</h3>
-                            <input type="text"value="<?= $model[0]->getPrice() ?>" name="editPrice">
-                        </div>
-                        <br>
-                       
-                        <div class="row">
-                                <button type="submit"  class="btn btn-warning" id="updateMovieBtn"name="updateMovieBtn">Update</button>
-                        </div>
-                        </form> 
+                    <div class="row">
+                        <h3 class="pr-1">Title</h3>
+                        <input type="text" class="text-center" name="addTitle"></input>
                     </div>
-                    <div class="col"></div>
+                    <div class="row">
+                        <h3 class="pr-1">Description</h3>
+                        <input type="text" class="text-left ml-20" name="addDescription"></input>
+                    </div>
+                    <div class="row">
+                        <h3>Director</h3>
+                        <input type="text" name="addDirector"></input>
+                    </div>
+                    <div class="row">
+                        <h3>Date Produced</h3>
+                        <input type="date" name="addDateProduced"></input>
+                    </div>
+                    <div class="row">
+                        <h3>Genre</h3>
+                        <input type="text" name="addGenre"></input>
+                    </div>
+                    <div class="row">
+                        <h3>Rating</h3>
+                        <input type="text" name="addRating"></input>
+                    </div>
+                    <div class="row">
+                        <h3>Price</h3>
+                        <input type="text" name="addPrice">
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <button type="submit" class="btn btn-warning" id="addMovieBtn" name="addMovieBtn">Add</button>
+                    </div>
+                    </form>
                 </div>
+                <div class="col"></div>
             </div>
-    
+        </div>
+        </form>
     </section>
 
 </body>

@@ -58,19 +58,14 @@
                                     <a class="dropdown-item" <?php if (is_null($_SESSION['loggedInUser'])) { ?> hidden
                                         <?php } ?>>Logged in: <?php echo $_SESSION['loggedInUser']['firstname']; ?></a>
 
-                                    <a class="dropdown-item" name="admin" href="admin/index"
+                                    <a class="dropdown-item" name="admin" href="/admin/index"
                                         <?php if ($_SESSION['loggedInUser']['isAdmin'] == '0'){ ?> hidden
                                         <?php }?>>Admin settings</a>
-                               
                                     <a class="dropdown-item" style="background:#F08181;" href="/logout">Log out</a>
                                 </div>
                             </div>
-
                         </div>
-
-                    </div>
-
-
+                    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
                 </form>
             </div>
         </div>

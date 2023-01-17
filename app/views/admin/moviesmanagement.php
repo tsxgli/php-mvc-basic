@@ -14,7 +14,7 @@ include __DIR__ . '/../header.php';
 </head>
 
 <body>
-<form action="/admin/addUser" method="POST">
+<form action="/admin/addMovie" method="POST">
     <h3>Add new movie</h3>
     <button  type="submit" name="addUser" class="btn btn-primary">Add Movie </button><br><br>
     </form>

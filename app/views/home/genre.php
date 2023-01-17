@@ -14,9 +14,7 @@ include __DIR__ . '/../header.php';
 </head>
 
 <body>
-
     <section>
- 
         <div class="container">
             <h1 class="text-capitalize"><?= $_SESSION['genre']?> movies</h1>
             <div class="row">

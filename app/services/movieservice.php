@@ -24,4 +24,7 @@ class MovieService {
     {
         $this->repository->updateMovie($id,$title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
     }
+    public function addMovie($data){
+        $this->repository->addMovie($data);
+    }
 }

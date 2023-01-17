@@ -13,10 +13,8 @@ class RegisterController
     public function registerUser()
     {
        // require __DIR__ . '/../views/register/index.php';
-
         $user = new User();
         if (isset($_POST['registerBtn'])) {
-            
             $user->setEmail(htmlspecialchars($_POST['emailRegister'])); 
             $user-> setPassword(password_hash(htmlspecialchars($_POST['passwordRegister']),PASSWORD_DEFAULT));
             $user-> setFirstName(htmlspecialchars($_POST['firstnameRegister']));
@@ -26,9 +24,8 @@ class RegisterController
             $user->setBirthdate(htmlspecialchars($_POST['birthdateRegister']));
             $user->setIsAdmin(false);
             $this->registerService->registerUser($user);
-            
+ 
             echo " <script type='text/javascript'>alert('Account successfully registered.');</script>";
-
             // navigate to login page after register
             echo "<script>location.href='/login'</script>";
         }
