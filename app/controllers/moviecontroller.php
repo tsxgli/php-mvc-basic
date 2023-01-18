@@ -16,7 +16,8 @@ class MovieController
         require __DIR__ . '/../views/home/index.php';
 
     }
-    public function showTop250Movies(){
+    public function showTop250Movies()
+    {
         require __DIR__ . '/../views/api/topmovies.php';
     }
     public function filterMovies(string $filter)
@@ -65,60 +66,22 @@ class MovieController
     }
 
 
-
-    // public function addMovieToCart()
-    // {
-    //     $movieId = $_GET['id'];
-    //     $movie = $this->movieservice->getMovie($movieId);
-    //     if (!isset($_SESSION['cartItems'])) {
-    //         $_SESSION['cartItems'] = array();
-    //     }
-    //     if (isset($_POST['buyMovieBtn']) || isset($_POST['buyMovieBtnHome'])) {
-    //         $movieExists = false;
-    //         if (isset($_SESSION['cartItems'])) {
-    //             foreach ($_SESSION['cartItems'] as $cartItem) {
-    //                 if ($cartItem['_id'] == $movieId) {
-    //                     $cartItem['quantity']++;
-    //                     $movieExists = true;
-    //                     break;
-    //                 }
-    //             }
-    //         }
-    //         if (!$movieExists) {
-    //             array_push($_SESSION['cartItems'], [$movie, 'quantity' => 1]);
-    //         }
-    //     }
-    //     echo " <script type='text/javascript'>alert('Item has been added to cart.');</script>";
-    // }
     public function addMovieToCart()
     {
         $movieId = $_GET['id'];
         $movie = $this->movieservice->getMovie($movieId);
-        if (!isset($_SESSION['cartItems'])) {
-            $_SESSION['cartItems'] = array();
-        }
-        $movieExists = false;
-        foreach ($_SESSION['cartItems'] as &$item) {
-            if ($item['movie']->_id == $movie->_id) {
-                $item['quantity']++;
-                $movieExists = true;
-                break;
-            }
-        }
-        if (!$movieExists) {
-            $_SESSION['cartItems'][] = array(
-                'quantity' => 1,
-                'movie' => $movie
-            );
-        } 
+
+        $_SESSION['cartItems'] = $movie;
+
+        require __DIR__ . '/../views/order/index.php';
     }
 
     public function updateMovie()
     {
-        
+
         if (isset($_POST['updateMovieBtn'])) {
 
-            $newImageName= $this->movePicture($_FILES['imageSelector']);
+            $newImageName = $this->movePicture($_FILES['imageSelector']);
 
             $id = htmlspecialchars($_POST['editId']);
             $title = htmlspecialchars($_POST['editTitle']);
@@ -146,7 +109,7 @@ class MovieController
     {
         // A list of permitted file extensions
         if (isset($_POST['addMovieBtn'])) {
-            $newImageName= $this->movePicture($_FILES['addImage']);
+            $newImageName = $this->movePicture($_FILES['addImage']);
             $data = array(
                 'title' => htmlspecialchars($_POST['addTitle']),
                 'description' => (htmlspecialchars($_POST['addDescription'])),
@@ -166,20 +129,20 @@ class MovieController
     }
     public function movePicture($imageName)
     {
-            $fileName = $imageName['name'];
-            $tempName = $imageName['tmp_name'];
-            $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-            $newImageName = uniqid() . '.' . $ext;
+        $fileName = $imageName['name'];
+        $tempName = $imageName['tmp_name'];
+        $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+        $newImageName = uniqid() . '.' . $ext;
 
-            if (isset($fileName)) {
-                if (!empty($fileName)) {
-                    $location = "images/";
-                    if (move_uploaded_file($tempName, $location . $newImageName)) {
-                        echo 'File Uploaded';
-                    }
+        if (isset($fileName)) {
+            if (!empty($fileName)) {
+                $location = "images/";
+                if (move_uploaded_file($tempName, $location . $newImageName)) {
+                    echo 'File Uploaded';
                 }
             }
-        
+        }
+
         return $newImageName;
     }
 

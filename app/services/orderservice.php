@@ -8,6 +8,8 @@ class OrderService {
     {
         $this->repository = new OrderRepository();
     }
-    
+    public function insertOrder($order){
+        $this->repository->insertOrder($order);
+    }
 
 }

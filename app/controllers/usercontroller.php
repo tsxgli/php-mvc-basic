@@ -48,7 +48,7 @@ class UserController
         } else {
             echo " <script type='text/javascript'>alert('Could not update user.');</script>";
         }
-        echo "<script>location.href='/manageusers'</script>";
+        echo "<script>location.href='admin/manageusers'</script>";
     }
 
     public function addUser()
@@ -72,7 +72,7 @@ class UserController
         } else {
             echo " <script type='text/javascript'>alert('Could not add user.');</script>";
         }
-        echo "<script>location.href='/manageusers'</script>";
+        echo "<script>location.href='admin/manageusers'</script>";
         
     }
 }

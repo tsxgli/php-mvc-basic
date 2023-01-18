@@ -46,9 +46,7 @@
                 <form class="form-inline my-2 my-lg-0" method="POST">
                     <div class="row">
 
-                        <div class="col">
-                            <a class="btn btn-outline-success my-2 my-sm-0" href="/cartItems" type="submit">Cart</a>
-                        </div>
+                        
                         <div class="col">
                             <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"

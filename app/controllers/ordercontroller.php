@@ -18,36 +18,36 @@ class OrderController
     {
         require __DIR__ . '/../views/order/index.php';
     }
-    // public function addToCart()
-    // {
-    //     if ($_POST['buyMovieBtn']) {
-    //         $_SESSION['cart'][] = $movie;
-    //     }
-    //     require __DIR__ . '/../views/order/index.php';
-    // }
 
-    public function addToCart()
+    public function buyMovie()
     {
-        // Get the movie id from the form submission
-        $movieId = htmlspecialchars($_POST['movieId']);
+        $order = new Order();
+        if(isset($_POST['payBtn'])){
+            echo "whatttt";
+            $checkoutEmail=$_POST['checkoutEmail'];
+           
+            $order->setMovieID($_POST['movieId']);
+            $order->setDateOrdered(date_create());
+            $order->setUserID($_SESSION['loggedInUser']['_id']);
 
-        // Load the movie model
-      
-        // Get the movie object from the database using the movie id
-        $movie = $this->orderService->getById($movieId);
-        // Start the session
-        // Check if the cart session variable exists
-        if (!isset($_SESSION['cart'])) {
-            // If it doesn't exist, create it as an empty array
-            $_SESSION['cart'] = array();
+            var_dump($order);
+            // $this->orderService->insertOrder($order);
+
+            $this->sendMail($checkoutEmail);
+            //require __DIR__ . '/../views/order/paymentSuccessful.php';
         }
-        // Add the movie object to the cart session variable
-        array_push($_SESSION['cart'], $movie);
+    }
 
-        // Redirect the user back to the detail page
-        header('Location: /movies/detail/' . $movieId);
+    public function sendMail($checkoutEmail){
+        $to = $checkoutEmail;
+    $subject = "Movie Purchase Wmovies";
+    $message = "Your movie purchase was successful. You can watch it here https://www.youtube.com/watch?v=d9MyW72ELq0";
+    $headers = "From: wmovies@email.com" . "\r\n" .
+               "Reply-To: wmovies@email.com" . "\r\n" .
+               "X-Mailer: PHP/" . phpversion();
 
-     
+    mail($to, $subject, $message, $headers);
+    echo "Email sent!";   
     }
 }
 

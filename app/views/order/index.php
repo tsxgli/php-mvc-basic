@@ -1,20 +1,10 @@
 <?php
 include __DIR__ . '/../header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Shopping cart</title>
-</head>
 
 <body>
-    <?php  print_r($_SESSION['cartItems']);?>
+
     <section class="h-100 h-custom" style="background-color: #00C0DB;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -30,46 +20,41 @@ include __DIR__ . '/../header.php';
                                         </div>
                                         <hr class="my-4">
 
+                                        <form action="/buyMovie" method="POST">
+                                            <?php
+                                            foreach ($_SESSION['cartItems'] as $movie) {
 
-                                        <?php
-                                         foreach ($_SESSION['cartItems'] as $item) {
-                                             foreach ($item[0] as $movieg) {
-                                                echo "<tr>";
-                                                echo "<td>" . $movieg->getTitle() . "</td>";
-                                                echo "<td>" . $movieg->getDirector() . "</td>";
-                                                echo "<td>" . $movieg->getDescription() . "</td>";
-                                                echo "<td>" . $movieg->getGenre() . "</td>";
-                                                echo "<td>" . $movieg->getDateProduced() . "</td>";
-                                                echo "<td>" . $movieg->getPrice() . "</td>";
-                                                echo "<td>" . $movieg->getImage() . "</td>";
-                                                echo "<td>" . $movieg['quantity'] . "</td>";
-                                                echo "</tr>";
-                                                 ?>
-                                        <div class="row mb-4 d-flex justify-content-between align-items-center">
-                                            <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="/images<?='/' . $movie->getImage() ?>"
-                                                    class="img-fluid rounded-3" alt="<?= $cartItem[0]->getImage() ?>">
-                                            </div>
-                                            <div class="col-md-3 col-lg-3 col-xl-3">
-                                                <h6 class="text-muted">Movie</h6>
-                                                <h6 class="text-black mb-0"><?= $movie->getTitle() ?></h6>
-                                            </div>
-                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h6 class="text-muted">Price</h6>
-                                                <h6 class="text-black mb-0"><?= $movie->getPrice() ?></h6>
-                                            </div>
-                                        </div>
-                                        <hr class="my-4">
-                                        <?php
-                                             }
-                                         }
-?>
+                                                ?>
+                                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                                        <img src="/images<?='/' . $movie->getImage() ?>"
+                                                            alt="<?php $movie->getTitle() ?>" class="img-fluid "
+                                                            style="height: 100%;">
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                                        <h6 class="text-muted">Movie</h6>
+                                                        <h6 class="text-black mb-0">
+                                                            <?= $movie->getTitle() ?>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                        <h6 class="text-muted">Price</h6>
+                                                        <h6 class="text-black mb-0">
+                                                            <?= $movie->getPrice() ?>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <hr class="my-4">
+                                            <?php
+                                            }
 
-                                        <div class="pt-5">
-                                            <h6 class="mb-0"><a href="/movies" class="text-body"><i
-                                                        class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
-                                            </h6>
-                                        </div>
+                                            ?>
+
+                                            <div class="pt-5">
+                                                <h6 class="mb-0"><a href="/movies" class="text-body"><i
+                                                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
+                                                </h6>
+                                            </div>
                                     </div>
                                 </div>
 
@@ -85,7 +70,7 @@ include __DIR__ . '/../header.php';
                                         <h5 class="text-uppercase mb-3">Delivery</h5>
                                         <div class="mb-5">
                                             <div class="form-outline">
-                                                <input type="text" id="checkoutEmailInput"
+                                                <input type="text" name="checkoutEmail" id="checkoutEmailInput"
                                                     class="form-control form-control-lg" />
                                                 <label class="form-label" for="checkoutEmailInput">Enter your
                                                     email</label>
@@ -104,12 +89,19 @@ include __DIR__ . '/../header.php';
 
                                         <hr class="my-4">
                                         <div class="d-flex justify-content-between mb-5">
-                                            <h5 class="text-uppercase">Total price</h5>
-                                            <h5>€ 137.00</h5>
+                                            <label class="form-label" for="checkoutEmailInput">Total price
+                                            </label>
+                                            <h5 class="text-uppercase">
+                                                <?= $movie->getPrice() ?>
+                                            </h5>
+                                            <h5></h5>
                                         </div>
 
-                                        <a href="/paymentSuccessful" class="btn btn-dark btn-block btn-lg"
+                                        <a name="payBtn" class="btn btn-dark btn-block btn-lg"
                                             data-mdb-ripple-color="dark">Pay</a>
+
+                                        <input type="hidden" name="movieId" value="<?= $movie->get_id() ?>">
+                                        </form>
 
                                     </div>
                                 </div>
@@ -120,9 +112,7 @@ include __DIR__ . '/../header.php';
             </div>
         </div>
     </section>
-</body>
 
-</html>
-<?php
-include __DIR__ . '/../footer.php';
-?>
+    <?php
+    include __DIR__ . '/../footer.php';
+    ?>

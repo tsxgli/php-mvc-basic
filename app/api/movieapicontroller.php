@@ -28,25 +28,25 @@ class MovieAPIController
             echo json_encode($movies);
         }
 
-        // Respond to a POST request to /api/article
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // // Respond to a POST request to /api/article
+        // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            // your code here
-            // read JSON from the request, convert it to an article object
-            // and have the service insert the article into the database
+        //     // your code here
+        //     // read JSON from the request, convert it to an article object
+        //     // and have the service insert the article into the database
 
-            $body = file_get_contents('php://input');
-            $object= json_decode($body);
+        //     $body = file_get_contents('php://input');
+        //     $object= json_decode($body);
 
-            $movie = new Article();
-            $movie->setTitle($object->title);
-            $movie->setContent($object->content);
-            $movie->setAuthor("Mark");
+        //     $movie = new Article();
+        //     $movie->setTitle($object->title);
+        //     $movie->setContent($object->content);
+        //     $movie->setAuthor("Mark");
 
-            $article = $this->movieservice->addmovie($movie);
-            echo json_encode($articles);
+        //     $article = $this->movieservice->addmovie($movie);
+        //     echo json_encode($articles);
 
-        }
+        // }
     }
 }
 ?>
