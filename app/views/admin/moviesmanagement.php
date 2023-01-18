@@ -10,6 +10,8 @@ include __DIR__ . '/../header.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="/javascript/moviemanagement.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -41,8 +43,7 @@ include __DIR__ . '/../header.php';
                                 <form method="POST">
                                     <a type="submit" class="btn btn-primary" name="editMovieBtn" href="/admin/editMovie?id=<?php echo $movie->get_id();?>">
                                         Edit</a>
-                                    <a type="submit" class="btn btn-danger" name="deleteMovieBtn"href="/admin/deleteMovie?id=<?php echo $movie->get_id();?>">
-                                        Delete</a>
+                                        <a type="submit" class="btn btn-danger" id="deleteBtn" name="deleteMovieBtn" href="/admin/deleteMovie?id=<?php echo $movie->get_id();?>">Delete</a>
                                 </form>
 
                         </div>

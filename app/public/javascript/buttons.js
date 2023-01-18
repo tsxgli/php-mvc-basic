@@ -1,3 +1,4 @@
+
 function passwordToggleButton(){
         var passwordInput = document.getElementById('passwordInput');
         var passwordToggleButton =  document.getElementById('passwordToggleButton');

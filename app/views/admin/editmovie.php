@@ -23,7 +23,7 @@ include __DIR__ . '/../header.php';
                             style="height: 100% ;">
                     </div>
                     <div class="col">
-                    <form method="POST" action="/admin/updatemovie">
+                    <form method="POST" action="/admin/updatemovie"enctype="multipart/form-data">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                             </div>

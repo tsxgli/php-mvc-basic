@@ -40,7 +40,15 @@ class MovieController
         $id = $_GET['id'];
         $this->movieservice->deleteMovie($id);
         echo "<script>location.href='/admin/managemovies'</script>";
+        // if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+        //     $id = $_GET['id'];
+        //     $this->movieservice->deleteMovie($id);
+        //     http_response_code(204);
+        // } else {
+        //     http_response_code(405);
+        // }
     }
+
     public function editMovie()
     {
         $id = $_GET['id'];
@@ -99,12 +107,16 @@ class MovieController
                 'quantity' => 1,
                 'movie' => $movie
             );
-        }
+        } 
     }
 
     public function updateMovie()
     {
+        
         if (isset($_POST['updateMovieBtn'])) {
+
+            $newImageName= $this->movePicture($_FILES['imageSelector']);
+
             $id = htmlspecialchars($_POST['editId']);
             $title = htmlspecialchars($_POST['editTitle']);
             $description = htmlspecialchars($_POST['editDescription']);
@@ -113,10 +125,8 @@ class MovieController
             $rating = htmlspecialchars($_POST['editRating']);
             $price = htmlspecialchars($_POST['editPrice']);
             $genre = htmlspecialchars($_POST['editGenre']);
-            if (isset($_FILES['imageSelector'])) {
-                $image = $_FILES['imageSelector'];
-            }
-            $image = $_POST['editImage'];
+            $image = $newImageName;
+
             $this->movieservice->updateMovie($id, $title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
             echo " <script type='text/javascript'>alert('Successfully updated movie.');</script>";
         } else {
@@ -131,12 +141,33 @@ class MovieController
     }
     public function addMovie()
     {
+     
         // A list of permitted file extensions
-        if(isset($_POST['addMovieBtn'])){
-            $fileName = $_FILES['addImage']['name'];
-            $tempName = $_FILES['addImage']['tmp_name'];
+        if (isset($_POST['addMovieBtn'])) {
+            $newImageName= $this->movePicture($_FILES['addImage']);
+            $data = array(
+                'title' => htmlspecialchars($_POST['addTitle']),
+                'description' => (htmlspecialchars($_POST['addDescription'])),
+                'dateProduced' => htmlspecialchars($_POST['addDateProduced']),
+                'director' => htmlspecialchars($_POST['addDirector']),
+                'genre' => htmlspecialchars($_POST['addGenre']),
+                'rating' => htmlspecialchars($_POST['addRating']),
+                'price' => htmlspecialchars($_POST['addPrice']),
+                'image' => ($newImageName),
+                'stock' => (100),
+            );
+            $this->movieservice->addMovie($data);
+            echo "<script>location.href='/admin/managemovies'</script>";
+            //exit;
+        }
+
+    }
+    public function movePicture($imageName)
+    {
+            $fileName = $imageName['name'];
+            $tempName = $imageName['tmp_name'];
             $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-                $newImageName = uniqid() . '.' . $ext;
+            $newImageName = uniqid() . '.' . $ext;
 
             if (isset($fileName)) {
                 if (!empty($fileName)) {
@@ -146,35 +177,8 @@ class MovieController
                     }
                 }
             }
-        $data = array(
-            'title' => htmlspecialchars($_POST['addTitle']),
-            'description'=>(htmlspecialchars($_POST['addDescription'])),
-            'dateProduced' => htmlspecialchars($_POST['addDateProduced']),
-            'director' => htmlspecialchars($_POST['addDirector']),
-            'genre' => htmlspecialchars($_POST['addGenre']),
-            'rating' => htmlspecialchars($_POST['addRating']),
-            'price' => htmlspecialchars($_POST['addPrice']),
-            'image' => ($newImageName),
-            'stock' => (100),
-        );
-            $this->movieservice->addMovie($data);
-            echo "<script>location.href='/admin/managemovies'</script>";
-        //exit;
-        }
-       
-    }
-    public function movePicture(){
-            $fileName = $_FILES['addImage']['name'];
-            $tempName = $_FILES['addImage']['tmp_name'];
-
-            if (isset($fileName)) {
-                if (!empty($fileName)) {
-                    $location = "images/";
-                    if (move_uploaded_file($tempName, $location . $fileName)) {
-                        echo 'File Uploaded';
-                    }
-                }
-            }
+        
+        return $newImageName;
     }
 
 }
