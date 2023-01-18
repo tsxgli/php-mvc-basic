@@ -1,6 +1,7 @@
-let deleteBtn = document.getElementById("deleteBtn");
-deleteBtn.addEventListener("click", deleteItem);
-
+document.addEventListener("DOMContentLoaded", function() {
+    let deleteBtn = document.getElementById("deleteBtn");
+    deleteBtn.addEventListener("click", deleteItem);
+  });
 
   function deleteItem(event) {
     event.preventDefault();

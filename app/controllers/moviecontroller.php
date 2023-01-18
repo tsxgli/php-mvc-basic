@@ -16,6 +16,9 @@ class MovieController
         require __DIR__ . '/../views/home/index.php';
 
     }
+    public function showTop250Movies(){
+        require __DIR__ . '/../views/api/topmovies.php';
+    }
     public function filterMovies(string $filter)
     {
         $model = $this->movieservice->filterMovies($filter);
@@ -37,16 +40,16 @@ class MovieController
     }
     public function deleteMovie()
     {
-        $id = $_GET['id'];
-        $this->movieservice->deleteMovie($id);
-        echo "<script>location.href='/admin/managemovies'</script>";
-        // if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-        //     $id = $_GET['id'];
-        //     $this->movieservice->deleteMovie($id);
-        //     http_response_code(204);
-        // } else {
-        //     http_response_code(405);
-        // }
+        // $id = $_GET['id'];
+        // $this->movieservice->deleteMovie($id);
+        // echo "<script>location.href='/admin/managemovies'</script>"; 
+        if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+            $id = $_GET['id'];
+            $this->movieservice->deleteMovie($id);
+            http_response_code(204);
+        } else {
+            http_response_code(405);
+        }
     }
 
     public function editMovie()
@@ -141,7 +144,6 @@ class MovieController
     }
     public function addMovie()
     {
-     
         // A list of permitted file extensions
         if (isset($_POST['addMovieBtn'])) {
             $newImageName= $this->movePicture($_FILES['addImage']);
@@ -180,5 +182,7 @@ class MovieController
         
         return $newImageName;
     }
+
+
 
 }
