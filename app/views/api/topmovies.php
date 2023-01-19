@@ -9,7 +9,7 @@ include __DIR__ . '/../header.php';
             <div class="col-12">
                 <h1 class="text-center">Top Movies</h1>
                 <hr>
-                <ul id="moviesList" class="list-group"></ul>
+                <ol id="moviesList" class="list-group"></ol>
             </div>
         </div>
     </div>

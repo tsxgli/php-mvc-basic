@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/../services/orderservice.php';
 require __DIR__ . '/../models/order.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
 class OrderController
 {
     private $orderService;
@@ -37,21 +41,25 @@ class OrderController
         }
     }
 
-    public function sendMail($checkoutEmail){
-        $to = $checkoutEmail;
-    $subject = "Movie Purchase Wmovies";
-    $message = "Your movie purchase was successful. You can watch it here https://www.youtube.com/watch?v=d9MyW72ELq0";
-    $headers = "From: wmovies@email.com" . "\r\n" .
-               "Reply-To: wmovies@email.com" . "\r\n" .
-               "X-Mailer: PHP/" . phpversion();
+    // public function sendMail($checkoutEmail){
+    //     $to = $checkoutEmail;
+    // $subject = "Movie Purchase Wmovies";
+    // $message = "Your movie purchase was successful. You can watch it here https://www.youtube.com/watch?v=d9MyW72ELq0";
+    // $headers = "From: wmovies@email.com" . "\r\n" .
+    //            "Reply-To: wmovies@email.com" . "\r\n" .
+    //            "X-Mailer: PHP/" . phpversion();
 
-    mail($to, $subject, $message, $headers);
-    echo "Email sent!";   
-    }
+    // mail($to, $subject, $message, $headers);
+    // echo "Email sent!";   
+    // }
 
     public function getAllOrders(){ 
       $model  =  $this->orderService->getAll();
         require __DIR__ . '/../views/admin/orderhistory.php';
+    }
+
+    public function sendEmail(){
+
     }
 }
 
