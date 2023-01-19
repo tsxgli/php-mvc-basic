@@ -23,18 +23,17 @@ class OrderController
     {
         $order = new Order();
         if(isset($_POST['payBtn'])){
-            echo "whatttt";
-            $checkoutEmail=$_POST['checkoutEmail'];
+            $checkoutEmail =$_POST['checkoutEmail'];
            
             $order->setMovieID($_POST['movieId']);
             $order->setDateOrdered(date_create());
             $order->setUserID($_SESSION['loggedInUser']['_id']);
 
             var_dump($order);
-            // $this->orderService->insertOrder($order);
+            $this->orderService->insertOrder($order);
 
             $this->sendMail($checkoutEmail);
-            //require __DIR__ . '/../views/order/paymentSuccessful.php';
+            require __DIR__ . '/../views/order/paymentSuccessful.php';
         }
     }
 

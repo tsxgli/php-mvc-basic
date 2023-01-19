@@ -58,7 +58,7 @@ class MovieRepository extends Repository
         try {
             $stmt = $this->connection->prepare("Delete from Movie where _id=:id");
             $stmt->bindParam(':id', $id);
-            $stmt->execute();
+            return $stmt->execute();
         } catch (PDOException $e) {
             echo $e;
         }

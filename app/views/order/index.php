@@ -66,7 +66,8 @@ include __DIR__ . '/../header.php';
                                     <div class="p-5">
                                         <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                         <hr class="my-4">
-
+                                        </form>
+                                        <form action="/buyMovie" method="POST">
                                         <h5 class="text-uppercase mb-3">Delivery</h5>
                                         <div class="mb-5">
                                             <div class="form-outline">
@@ -89,20 +90,20 @@ include __DIR__ . '/../header.php';
 
                                         <hr class="my-4">
                                         <div class="d-flex justify-content-between mb-5">
-                                            <label class="form-label" for="checkoutEmailInput">Total price
+                                            <label class="form-label" for="">Total price
                                             </label>
                                             <h5 class="text-uppercase">
                                                 <?= $movie->getPrice() ?>
                                             </h5>
                                             <h5></h5>
                                         </div>
-
-                                        <a name="payBtn" class="btn btn-dark btn-block btn-lg"
-                                            data-mdb-ripple-color="dark">Pay</a>
-
-                                        <input type="hidden" name="movieId" value="<?= $movie->get_id() ?>">
+                                       
+                                            <button name="payBtn" class="btn btn-dark btn-block btn-lg"
+                                                data-mdb-ripple-color="dark">Pay</button>
+                                                <input type="hidden" name="movieId" value="<?php echo $movie->get_id(); ?>">
                                         </form>
-
+                                           
+                                      
                                     </div>
                                 </div>
                             </div>

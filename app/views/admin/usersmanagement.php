@@ -48,7 +48,7 @@ include __DIR__ . '/../header.php';
         <div class="col">
         <form action="/admin/deleteUser?id=<?php echo $user->get_id();?>" method="post">
           <input type="hidden" name="user_id" value="<?php echo $user->get_id(); ?>">
-          <input type="submit" name="delete_user" value="Delete" class="btn btn-danger">
+          <input type="submit" data-id="<?php echo $movie->get_id();?>" name="delete_user" value="Delete" class="btn btn-danger">
         </form>
         </div>
        

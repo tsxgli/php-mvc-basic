@@ -14,7 +14,6 @@ class MovieController
     {
         $model = $this->movieservice->getAll();
         require __DIR__ . '/../views/home/index.php';
-
     }
     public function showTop250Movies()
     {
@@ -41,13 +40,17 @@ class MovieController
     }
     public function deleteMovie()
     {
-        // $id = $_GET['id'];
-        // $this->movieservice->deleteMovie($id);
-        // echo "<script>location.href='/admin/managemovies'</script>"; 
-        if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_GET['id'];
-            $this->movieservice->deleteMovie($id);
-            http_response_code(204);
+          
+            $success = $this->movieservice->deleteMovie($id);
+            if ($success) {
+                http_response_code(200);
+                echo json_encode(["movies" => $this->movieservice->getAll()]);
+            } else {
+                http_response_code(400);
+                echo json_encode(["error" => "Failed to delete movie."]);
+            }
         } else {
             http_response_code(405);
         }
@@ -142,7 +145,6 @@ class MovieController
                 }
             }
         }
-
         return $newImageName;
     }
 

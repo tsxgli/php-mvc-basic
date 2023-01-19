@@ -20,7 +20,7 @@ let moviesList=document.getElementById("moviesList")
         div.classList.add("d-flex", "w-100", "justify-content-between");
         div.appendChild(movieTitle);
         div.appendChild(rank);
-
+ 
         let img = document.createElement("img");
         img.src = "/images/"+movie.image;
         img.width = "50";
@@ -34,7 +34,4 @@ let moviesList=document.getElementById("moviesList")
     })
     .catch((err) => console.error(err));
    
-
-
-
 }

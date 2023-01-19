@@ -14,50 +14,52 @@ include __DIR__ . '/../header.php';
 </head>
 
 <body>
-<form action="/admin/addMovie" method="POST">
-    <h3>Add new movie</h3>
-    <button  type="submit" name="addUser" class="btn btn-primary">Add Movie </button><br><br>
+    <form action="/admin/addMovie" method="POST">
+        <h3>Add new movie</h3>
+        <button type="submit" name="addUser" class="btn btn-primary">Add Movie </button><br><br>
     </form>
 
     <section>
         <div class="container">
             <div class="row">
                 <?php
-            
+
                 foreach ($model as $movie) {
                     ?>
-                <div class="col-3">
-                    <a href="/detail?id=<?php echo $movie->get_id();?>" style="display:inline-block; "">
-                        <div class=" card" style="width: 100%; height: 100%;">
-                        <div class="card-body">
-                            <h5 class="card-title"> <?= $movie->getTitle() ?></h5>
+                    <div class="col-3">
+                        <a href="/detail?id=<?php echo $movie->get_id(); ?>" style="display:inline-block; "">
+                                <div class=" card" style="width: 100%; height: 100%;">
                             <div class="card-body">
-                                <img src="/images<?='/'. $movie->getImage()?>" alt="<?php $movie->getTitle()?>"
-                                    class="img-fluid ">
+                                <h5 class="card-title">
+                                    <?= $movie->getTitle() ?>
+                                </h5>
+                                <div class="card-body">
+                                    <img src="/images<?='/' . $movie->getImage() ?>" alt="<?php $movie->getTitle() ?>"
+                                        class="img-fluid ">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <span class="float-start">
-                                <form method="POST">
-                                    <a type="submit" class="btn btn-primary" name="editMovieBtn" href="/admin/editMovie?id=<?php echo $movie->get_id();?>">
-                                        Edit</a>
-                                        <a type="submit" class="btn btn-danger" id="deleteBtn" name="deleteMovieBtn" href="/admin/deleteMovie?id=<?php echo $movie->get_id();?>">Delete</a>
-                                </form>
+                            <div class="card-footer">
+                                <span class="float-start">
+                                    <form method="POST">
+                                        <a type="submit" class="btn btn-primary" name="editMovieBtn"
+                                            href="/admin/editMovie?id=<?php echo $movie->get_id(); ?>">
+                                            Edit</a>
+                                        <a type="submit" class="btn btn-danger" id="deleteBtn" name="deleteMovieBtn"
+                                            href="/admin/deleteMovie?id=<?php echo $movie->get_id(); ?>">Delete</a>
+                                    </form>
 
-                        </div>
+                            </div>
+                    </div>
+                    </a>
                 </div>
-                </a>
-            </div>
             <?php
                 }
                 ?>
         </div>
     </section>
-    <script src="/javascript/moviemanagement.js"></script>
-</body>
-
-</html>
-
-<?php
-include __DIR__ . '/../footer.php';
-?>
+    <script src="/javascript/moviemanagement.js">
+  updateMovieCards($model);
+    </script>
+    <?php
+    include __DIR__ . '/../footer.php';
+    ?>

@@ -18,7 +18,7 @@ class MovieService {
         return $this->repository->getMovie($id);
     }
     public function deleteMovie($id){
-        $this->repository->deleteMovie($id);
+       return $this->repository->deleteMovie($id);
     }
     public function updateMovie( $id,$title, $description, $genre, $rating, $dateProduced, $price, $director, $image)
     {
