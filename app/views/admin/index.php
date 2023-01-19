@@ -15,7 +15,7 @@ include __DIR__ . '/../header.php';
     <h1>Admin settings</h1>
     <div class="row">
         <div class="col">
-        <a class="btn btn-outline-primary" href="/admin/vieworders">View Order history</a>
+        <a class="btn btn-outline-primary" href="/admin/viewOrders">View Order history</a>
         <a class="btn btn-outline-primary" href="/admin/managemovies">Manage movies</a>
         <a class="btn btn-outline-primary" href="/admin/manageusers">Manage users</a>
         </div>

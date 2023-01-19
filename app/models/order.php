@@ -1,30 +1,11 @@
 <?php
 class Order
 {
-
-    private int $id;
+    private int $_id;
     private int $userID;
     private int $movieID;
-    private DateTime $dateOrdered;
+    private string $dateOrdered;
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id 
-     * @return self
-     */
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @return int
@@ -47,21 +28,26 @@ class Order
     /**
      * @return DateTime
      */
-    public function getDateOrdered(): DateTime
-    {
-        return $this->dateOrdered;
-    }
 
-    /**
-     * @param DateTime $dateOrdered 
-     * @return self
-     */
-    public function setDateOrdered(DateTime $dateOrdered): self
-    {
-        $this->dateOrdered = $dateOrdered;
-        return $this;
-    }
 
+
+	/**
+	 * @return string
+	 */
+	public function getDateOrdered(): string {
+		return $this->dateOrdered;
+	}
+	
+	/**
+	 * @param string $dateOrdered 
+	 * @return self
+	 */
+	public function setDateOrdered(string $dateOrdered): self {
+		$this->dateOrdered = $dateOrdered;
+		return $this;
+	}
+
+	
 
 	/**
 	 * @return int
@@ -76,6 +62,22 @@ class Order
 	 */
 	public function setUserID(int $userID): self {
 		$this->userID = $userID;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function get_id(): int {
+		return $this->_id;
+	}
+	
+	/**
+	 * @param int $_id 
+	 * @return self
+	 */
+	public function set_id(int $_id): self {
+		$this->_id = $_id;
 		return $this;
 	}
 }

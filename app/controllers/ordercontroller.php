@@ -22,11 +22,11 @@ class OrderController
     public function buyMovie()
     {
         $order = new Order();
+        $current_datetime = date('Y-m-d H:i:s');
         if(isset($_POST['payBtn'])){
             $checkoutEmail =$_POST['checkoutEmail'];
-           
             $order->setMovieID($_POST['movieId']);
-            $order->setDateOrdered(date_create());
+            $order->setDateOrdered($current_datetime);
             $order->setUserID($_SESSION['loggedInUser']['_id']);
 
             var_dump($order);
@@ -47,6 +47,11 @@ class OrderController
 
     mail($to, $subject, $message, $headers);
     echo "Email sent!";   
+    }
+
+    public function getAllOrders(){ 
+      $model  =  $this->orderService->getAll();
+        require __DIR__ . '/../views/admin/orderhistory.php';
     }
 }
 

@@ -158,7 +158,11 @@ class SwitchRouter
                 $controller = new MovieController();
                 $controller->addMovie();
                 break;
-
+                case 'admin/viewOrders':
+                    require __DIR__ . '/../controllers/ordercontroller.php';
+                    $controller = new OrderController();
+                    $controller->getAllOrders();
+                    break;
             case 'topmovies':
                 require __DIR__ . '/../controllers/moviecontroller.php';
                 $controller = new MovieController();

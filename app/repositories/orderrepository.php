@@ -10,12 +10,26 @@ class OrderRepository extends Repository
 
             $stmt = $this->connection->prepare($query);
             $stmt->bindValue(':movieId', $order->getMovieID());
-            $stmt->bindValue(':dateOrdered', $order->getDateOrdered()->format('Y-m-d H:i:s'));
+            $stmt->bindValue(':dateOrdered', $order->getDateOrdered());
             $stmt->bindValue(':userId', $order->getUserID());
             $stmt->execute();
         } catch (PDOException $e) {
             echo $e;
         }
 
+    }
+    function getAll()
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM Orders");
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Order');
+            $movies = $stmt->fetchAll();
+
+            return $movies;
+
+        } catch (PDOException $e) {
+            echo $e;
+        }
     }
 }
