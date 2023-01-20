@@ -22,7 +22,7 @@ class UserController
     {
         $userId = $_GET['id'];
         $this->userservice->deleteUser($userId);
-        require __DIR__ . '/../views/admin/usersmanagement.php';
+        echo "<script>location.href='/admin/manageusers'</script>";
     }
     public function editUser()
     {
@@ -45,10 +45,11 @@ class UserController
             );
             $this->userservice->updateUser($data);
             echo " <script type='text/javascript'>alert('Successfully updated user.');</script>";
+
         } else {
             echo " <script type='text/javascript'>alert('Could not update user.');</script>";
         }
-        echo "<script>location.href='admin/manageusers'</script>";
+        echo "<script>location.href='/admin/manageusers'</script>";
     }
 
     public function addUser()
@@ -72,8 +73,7 @@ class UserController
         } else {
             echo " <script type='text/javascript'>alert('Could not add user.');</script>";
         }
-        echo "<script>location.href='admin/manageusers'</script>";
-        
+        echo "<script>location.href='/admin/manageusers'</script>";
     }
 }
 

@@ -71,7 +71,7 @@ include __DIR__ . '/../header.php';
                                         <h5 class="text-uppercase mb-3">Delivery</h5>
                                         <div class="mb-5">
                                             <div class="form-outline">
-                                                <input type="text" name="checkoutEmail" id="checkoutEmailInput"
+                                                <input type="email" name="checkoutEmail" id="checkoutEmailInput"
                                                     class="form-control form-control-lg" />
                                                 <label class="form-label" for="checkoutEmailInput">Enter your
                                                     email</label>
