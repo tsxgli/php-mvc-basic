@@ -32,25 +32,12 @@ class OrderController
             $order->setDateOrdered($current_datetime);
             $order->setUserID($_SESSION['loggedInUser']['_id']);
 
-            var_dump($order);
             $this->orderService->insertOrder($order);
 
             $this->sendEmail($checkoutEmail);
             require __DIR__ . '/../views/order/paymentSuccessful.php';
         }
     }
-
-    // public function sendMail($checkoutEmail){
-    //     $to = $checkoutEmail;
-    // $subject = "Movie Purchase Wmovies";
-    // $message = "Your movie purchase was successful. You can watch it here https://www.youtube.com/watch?v=d9MyW72ELq0";
-    // $headers = "From: wmovies@email.com" . "\r\n" .
-    //            "Reply-To: wmovies@email.com" . "\r\n" .
-    //            "X-Mailer: PHP/" . phpversion();
-
-    // mail($to, $subject, $message, $headers);
-    // echo "Email sent!";   
-    // }
 
     public function getAllOrders()
     {
