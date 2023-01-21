@@ -42,7 +42,7 @@ class MovieController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_GET['id'];
-          
+
             $success = $this->movieservice->deleteMovie($id);
             if ($success) {
                 http_response_code(200);
@@ -81,11 +81,9 @@ class MovieController
 
     public function updateMovie()
     {
-
         if (isset($_POST['updateMovieBtn'])) {
-
-            $newImageName = $this->movePicture($_FILES['imageSelector']);
-
+                $ImageName = $this->movePicture($_FILES['imageSelector']);
+            
             $id = htmlspecialchars($_POST['editId']);
             $title = htmlspecialchars($_POST['editTitle']);
             $description = htmlspecialchars($_POST['editDescription']);
@@ -94,7 +92,7 @@ class MovieController
             $rating = htmlspecialchars($_POST['editRating']);
             $price = htmlspecialchars($_POST['editPrice']);
             $genre = htmlspecialchars($_POST['editGenre']);
-            $image = $newImageName;
+            $image = $ImageName;
 
             $this->movieservice->updateMovie($id, $title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
             echo " <script type='text/javascript'>alert('Successfully updated movie.');</script>";

@@ -6,7 +6,7 @@ include __DIR__ . '/../header.php';
 <section>
     <div class="container">
         <div class="col">
-            <form method="POST" action="/admin/addNewUser">
+            <form class="was-validated" method="POST" action="/admin/addNewUser">
                 <div class="container">
                     <div class="row">
                         <div class="form-group col-12 col-md-6">

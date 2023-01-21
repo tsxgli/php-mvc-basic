@@ -1,22 +1,11 @@
 <?php
 include __DIR__ . '/../header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title></title>
-</head>
 
 <body>
     <section>
         <h1>Add Movie</h1>
-        <form method="POST" action="/admin/addNewMovie" enctype="multipart/form-data" id="addMovieForm">
+        <form  method="POST" action="/admin/addNewMovie" enctype="multipart/form-data" id="addMovieForm">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -53,7 +42,7 @@ include __DIR__ . '/../header.php';
                         <input type="text" class="form-control" id="addPrice" name="addPrice" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-warning" id="addMovieBtn" name="addMovieBtn">Add movie</button>
+                        <br><button type="submit" class="btn btn-warning" id="addMovieBtn" name="addMovieBtn">Add movie</button>
                     </div>
                 </div>
             </div>
@@ -62,9 +51,6 @@ include __DIR__ . '/../header.php';
 
     </section>
 
-</body>
-
-</html>
 <?php
 include __DIR__ . '/../footer.php';
 ?>

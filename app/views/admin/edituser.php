@@ -1,79 +1,73 @@
 <?php
 include __DIR__ . '/../header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title></title>
-</head>
 
 <body>
     <h1>Edit User</h1>
     <section>
         <div class="container">
             <div class="col">
-                <form method="POST" action="/admin/updateUser">
+                <form class="was-validated"method="POST" action="/admin/updateUser" onsubmit="return validateForm()">
                     <div class="row">
                         <input hidden type="text" class="text-center" name="editId"
                             value="<?php echo $model[0]->get_id(); ?>"></input>
                     </div>
-                    <div class="row">
-                        <h3 class="pr-1">First Name</h3>
-                        <input type="text" class="text-left " name="editFirstname"
-                            value="<?php echo $model[0]->getFirstName(); ?>"></input>
+                    <div class="form-group">
+                        <label for="editFirstname">First Name</label>
+                        <input type="text" class="form-control" name="editFirstname"
+                            value="<?php echo $model[0]->getFirstName(); ?>" required>
+                        <div class="invalid-feedback">Please enter a first name.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editLastname">Last Name</label>
+                        <input type="text" class="form-control" name="editLastname"
+                            value="<?php echo $model[0]->getLastName(); ?>" required>
+                        <div class="invalid-feedback">Please enter a last name.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPostcode">Postcode</label>
+                        <input type="text" class="form-control" value="<?php echo $model[0]->getPostCode(); ?>"
+                            name="editPostcode"
+                            pattern="^[0-9]{4}[A-Za-z]{2}$"required>
+                        <div class="invalid-feedback">Please enter a valid postcode.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAddress">Address</label>
+                        <input type="text" class="form-control" value="<?php echo $model[0]->getAddress(); ?>"
+                            name="editAddress" pattern="[a-zA-Z]+ [0-9]{1,4}" required>
+                        <div class="invalid-feedback">Please enter a valid address.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editBirthdate">Birthdate</label>
+                        <input type="date" class="form-control" value="<?php echo $model[0]->getBirthdate(); ?>"
+                            name="editBirthdate" required>
+                        <div class="invalid-feedback">Please enter a birthdate.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email</label>
+                        <input type="email" class="form-control" value="<?php echo $model[0]->getEmail(); ?>"
+                            name="editEmail" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$">
+                        <div class="invalid-feedback">Please enter a valid email.</div>
                     </div>
                     <div class="row">
-                        <h3 class="pr-1">Last Name</h3>
-                        <input type="text" class="text-left ml-20" name="editLastname"
-                            value="<?php echo $model[0]->getLastName(); ?>"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Postcode</h3>
-                        <input type="text" value="<?php echo $model[0]->getPostCode(); ?>" name="editPostcode"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Address</h3>
-                        <input type="text" value="<?php echo $model[0]->getAddress(); ?>" name="editAddress"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Genre</h3>
-                        <input type="date" value="<?php echo $model[0]->getBirthdate(); ?>"
-                            name="editBirthdate"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Email</h3>
-                        <input type="text" value="<?php echo $model[0]->getEmail(); ?>" name="editEmail"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Is Admin</h3>
-                        <select name="isAdmin">
-                            <option value="False" <?= $model[0]->getIsAdmin() == "0" ? 'selected' : '' ?>>False</option>
-                            <option value="True" <?= $model[0]->getIsAdmin() == "1" ? 'selected' : '' ?>>True</option>
-                        </select>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <button type="submit" class="btn btn-warning" id="updateUserBtn"
-                            name="updateUserBtn">Update</button>
-                    </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="isAdmin">Is Admin</label>
+                            <select class="form-control" id="isAdmin" name="isAdmin" required>
+                                <option value="False" <?= $model[0]->getIsAdmin() == "0" ? 'selected' : '' ?>>False
+                                </option>
+                                <option value="True" <?= $model[0]->getIsAdmin() == "1" ? 'selected' : '' ?>>True</option>
+                            </select>
+                        </div>
+                 
+                        <div class="form-group">
+                        <br><button type="submit" class="btn btn-warning" id="updateUserBtn"
+                                name="updateUserBtn">Update</button>
+                        </div>
                 </form>
             </div>
             <div class="col"></div>
         </div>
-
-
     </section>
-
-</body>
-
-</html>
-<?php
-include __DIR__ . '/../footer.php';
-?>
+    <?php
+    include __DIR__ . '/../footer.php';
+    ?>

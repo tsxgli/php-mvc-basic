@@ -11,7 +11,7 @@ include __DIR__ . '/../header.php';
                 foreach ($model as $movie) {
                     $_SESSION['movie'] = $movie;
                     ?>
-                <div class="col-3">
+                   <div class="col-lg-3 col-md-4 col-sm-6">
                 <a href="/detail?id=<?php echo $movie->get_id();?>" ">
                     <div class=" card" style="width: 100%; height: 100%;">
                         <div class="card-body">
