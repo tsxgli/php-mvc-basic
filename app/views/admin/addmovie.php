@@ -16,61 +16,50 @@ include __DIR__ . '/../header.php';
 <body>
     <section>
         <h1>Add Movie</h1>
-        <form method="POST" action="/admin/addNewMovie" enctype="multipart/form-data">
+        <form method="POST" action="/admin/addNewMovie" enctype="multipart/form-data" id="addMovieForm">
         <div class="container">
             <div class="row">
-                <div class="col">
-
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="addImage">Image</label>
+                        <input type="file" class="form-control-file" id="addImage" name="addImage" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addTitle">Title</label>
+                        <input type="text" class="form-control" id="addTitle" name="addTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addDescription">Description</label>
+                        <input type="text" class="form-control" id="addDescription" name="addDescription" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addDirector">Director</label>
+                        <input type="text" class="form-control" id="addDirector" name="addDirector" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addDateProduced">Date Produced</label>
+                        <input type="date" class="form-control" id="addDateProduced" name="addDateProduced" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addGenre">Genre</label>
+                        <input type="text" class="form-control" id="addGenre" name="addGenre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addRating">Rating</label>
+                        <input type="text" class="form-control" id="addRating" name="addRating" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addPrice">Price</label>
+                        <input type="text" class="form-control" id="addPrice" name="addPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning" id="addMovieBtn" name="addMovieBtn">Add movie</button>
+                    </div>
                 </div>
-                <div class="col">
-                 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="addImage" name="addImage">
-
-                            </div>
-                        </div>
-                    <div class="row">
-                        <h3 class="pr-1">Title</h3>
-                        <input type="text" class="text-center" name="addTitle"></input>
-                    </div>
-                    <div class="row">
-                        <h3 class="pr-1">Description</h3>
-                        <input type="text" class="text-left ml-20" name="addDescription"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Director</h3>
-                        <input type="text" name="addDirector"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Date Produced</h3>
-                        <input type="date" name="addDateProduced"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Genre</h3>
-                        <input type="text" name="addGenre"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Rating</h3>
-                        <input type="text" name="addRating"></input>
-                    </div>
-                    <div class="row">
-                        <h3>Price</h3>
-                        <input type="text" name="addPrice">
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <button type="submit" class="btn btn-warning" id="addMovieBtn" name="addMovieBtn">Add</button>
-                    </div>
-                    </form>
-                </div>
-                <div class="col"></div>
             </div>
         </div>
-        </form>
+    </form>
+
     </section>
 
 </body>
