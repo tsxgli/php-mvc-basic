@@ -6,8 +6,8 @@ include __DIR__ . '/../header.php';
 <body>
     <div class="card bg-primary text-white text-center mb-5" style="width: 100%;">
         <div class="card-body mb-5 mt-5">
-            <h5 class="card-title  mt-5">WMovies</h5>
-            <h1></h1>
+            <h3 class="card-title  mt-5">WMovies</h3>
+            <h5>All your favorite movies in one place.</h5>
         </div>
     </div>
     <section>

@@ -27,7 +27,7 @@
                         <a class="nav-link" href="/movies">Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/topmovies"id="topMoviesBtn">Top 250 Movies</a>
+                        <a class="nav-link" href="/topmovies"id="topMoviesBtn">Trending Movies</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
