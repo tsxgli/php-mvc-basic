@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 11, 2023 at 01:22 PM
+-- Generation Time: Jan 22, 2023 at 10:48 AM
 -- Server version: 10.9.4-MariaDB-1:10.9.4+maria~ubu2204
 -- PHP Version: 8.0.25
 
@@ -67,8 +67,10 @@ CREATE TABLE `Movie` (
 --
 
 INSERT INTO `Movie` (`_id`, `title`, `director`, `description`, `genre`, `dateProduced`, `price`, `image`, `stock`, `rating`) VALUES
-(1, 'Avatar: The Way of Water', 'James Cameron', 'Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na\'vi race to protect their home.', 'Action', '2022-12-16', '€20.00', 'avatar-way-of-water.jpg', 100, '7.90'),
-(4, 'Glass Onion: A Knives Out Mystery', 'Rian Johnson', 'Five long-time friends are invited to the Greek island home of billionaire Miles Bron. All five know Bron from way back and owe their current wealth, fame and careers to him. The main event is a murder weekend game with Bron to be the victim. In reality, they all have reasons to kill him. Also invited is Benoit Blanc, the world\'s greatest detective', 'Drama', '2022-12-23', ' €20.00', 'a-knives-out-mystery.jpg', 100, '9.50');
+(1, 'Avatar: The Way of Water', 'James Cameron', 'Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na&#039;vi race to protect their home.', 'Action', '2022-12-16', '€20.00', '63cc25fd945f9.jpg', 100, '7.90'),
+(4, 'Glass Onion: A Knives Out Mystery', 'Rian Johnson', 'Five long-time friends are invited to the Greek island home of billionaire Miles Bron. All five know Bron from way back and owe their current wealth, fame and careers to him. The main event is a murder weekend game with Bron to be the victim. In reality, they all have reasons to kill him. Also invited is Benoit Blanc, the world&#039;s greatest detective', 'Drama', '2022-12-23', ' €20.00', 'a-knives-out-mystery.jpg', 100, '9.50'),
+(37, 'Violent Night', 'Tommy Wirkola', 'When a group of mercenaries attack the estate of a wealthy family, Santa Claus must step in to save the day (and Christmas).', 'Comedy', '2022-12-02', '$20', '63cc31fef2dfa.jpg', 100, '6.7'),
+(38, 'Fall', 'Scott Mann', 'Drowning in a sea of grief, 51 painful weeks after the life-altering incident that scarred her for life, emotionally fragile rock climber Becky reluctantly decides to confront her fears. And as her thrill-seeking friend Hunter re-enters Becky&#039;s ruined life, the two experienced climbers embark on a high-risk climbing adventure to the top of the abandoned 2,000-foot B67 TV tower: an anxiety-inducing, vertigo-inspiring construction of weather-beaten metal and rattling rivets in the middle of the Mojave desert. However, when the peril-laden climb doesn&#039;t go as planned, the women must summon up every last ounce of courage and strength to devise a plan for a safe return home--or die trying.', 'Thriller', '2022-08-12', '$20', '63cc3258d4275.jpg', 100, '6.4');
 
 -- --------------------------------------------------------
 
@@ -79,10 +81,22 @@ INSERT INTO `Movie` (`_id`, `title`, `director`, `description`, `genre`, `datePr
 CREATE TABLE `Orders` (
   `_id` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `dateOrdered` datetime NOT NULL,
-  `movieID` int(11) NOT NULL,
-  `orderStatus` int(11) NOT NULL
+  `dateOrdered` varchar(20) NOT NULL,
+  `movieID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Orders`
+--
+
+INSERT INTO `Orders` (`_id`, `userID`, `dateOrdered`, `movieID`) VALUES
+(1, 4, '2023-01-19 13:45:31', 4),
+(2, 4, '2023-01-19 14:43:53', 4),
+(3, 4, '2023-01-19 20:55:22', 1),
+(4, 4, '2023-01-19 21:14:45', 4),
+(5, 4, '2023-01-19 21:15:38', 4),
+(6, 4, '2023-01-19 21:17:17', 4),
+(7, 3, '2023-01-21 19:14:32', 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +106,8 @@ CREATE TABLE `Orders` (
 
 CREATE TABLE `Stock` (
   `movieId` int(11) NOT NULL,
-  `stock` int(11) NOT NULL
+  `stock` int(11) NOT NULL,
+  `isadmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -118,9 +133,10 @@ CREATE TABLE `User` (
 --
 
 INSERT INTO `User` (`_id`, `firstname`, `lastname`, `email`, `password`, `isAdmin`, `address`, `postcode`, `birthdate`) VALUES
-(2, 'Tsagli', 'Philip', 'philiptsagli', '$2y$10$bQFJLYoaOLP3y19ksQX0sOwtjdC5mHOMT8hR04gWZmpWEjsW2SOIa', 0, 'Olympisch Stadion 2', '1076 DE', '2022-12-24'),
-(3, 'phil', 'bro', 'phil@email.com', '$2y$10$1yVEgcJH39OZrMxZS4pDgeseh9UoKSe.zdqwDSb83daCAfJd4c6oC', 0, 'Inholland ', '1234AG', '2022-12-16'),
-(4, 'Admin', 'Admin', 'admin@email.com', '$2y$10$7sYtFaTNzQOb67GEPJLzZO9zvIT7cI1Ol/UGnrsFhmlya.q4pjr4a', 1, 'Inholland ', '1234AG', '2022-12-29');
+(3, 'philip', 'bro', 'phil@email.com', '$2y$10$1yVEgcJH39OZrMxZS4pDgeseh9UoKSe.zdqwDSb83daCAfJd4c6oC', 1, 'Inholland 1', '1234AG', '2022-12-16'),
+(4, 'Admin', 'Admin', 'admin@email.com', '$2y$10$7sYtFaTNzQOb67GEPJLzZO9zvIT7cI1Ol/UGnrsFhmlya.q4pjr4a', 1, 'Inholland ', '1234AG', '2022-12-29'),
+(12, '', '', 'philiptsagli', '$2y$10$kyii08s6zSZfjRO//Xu6pu72uJdrnOFTpsrJ684kZG9aUs64zV3fi', 0, '', '', ''),
+(13, 'Philip', 'Tsagli', 'philiptsagli@email.com', '$2y$10$SApFR2mMPQv5C5cLO34VWeQ/gGctCcxqd6hNvRE4mRiNKm2toXWai', 0, 'Kikkenstein', '1104TX', '2023-01-04');
 
 --
 -- Indexes for dumped tables
@@ -142,6 +158,7 @@ ALTER TABLE `Movie`
 -- Indexes for table `Orders`
 --
 ALTER TABLE `Orders`
+  ADD PRIMARY KEY (`_id`),
   ADD KEY `userID` (`userID`),
   ADD KEY `movieID` (`movieID`);
 
@@ -171,13 +188,19 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT for table `Movie`
 --
 ALTER TABLE `Movie`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `Orders`
+--
+ALTER TABLE `Orders`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

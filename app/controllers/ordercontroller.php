@@ -7,6 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 class OrderController
 {
     private $orderService;
+    private $movieService;
 
     function __construct()
     {
@@ -74,9 +75,12 @@ class OrderController
         if (!$mail->send()) {
             echo 'Error: ' . $mail->ErrorInfo;
         } else {
-            echo 'Email sent successfully!';
+           // echo 'Email sent successfully!';
         }
 
+    }
+    public function editStock(){
+        return $this->
     }
 }
 

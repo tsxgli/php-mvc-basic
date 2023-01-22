@@ -41,7 +41,6 @@ class MovieAPIController
 
             $this->movieservice->deleteMovie($id);
             $movies = $this->movieservice->getAll();
-
             echo json_encode($movies);
 
         }

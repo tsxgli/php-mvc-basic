@@ -53,9 +53,9 @@ include __DIR__ . '/../header.php';
                         <div class="form-group col-12 col-md-6">
                             <label for="isAdmin">Is Admin</label>
                             <select class="form-control" id="isAdmin" name="isAdmin" required>
-                                <option value="False" <?= $model[0]->getIsAdmin() == "0" ? 'selected' : '' ?>>False
+                                <option value="false" <?= $model[0]->getIsAdmin() == "0" ? 'selected' : '' ?>>False
                                 </option>
-                                <option value="True" <?= $model[0]->getIsAdmin() == "1" ? 'selected' : '' ?>>True</option>
+                                <option value="true" <?= $model[0]->getIsAdmin() == "1" ? 'selected' : '' ?>>True</option>
                             </select>
                         </div>
                  

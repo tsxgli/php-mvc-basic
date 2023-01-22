@@ -41,7 +41,7 @@ class UserController
                 'address' => htmlspecialchars($_POST['editAddress']),
                 'birthdate' => htmlspecialchars($_POST['editBirthdate']),
                 'email' => htmlspecialchars($_POST['editEmail']),
-                'isAdmin' => htmlspecialchars(($_POST['isAdmin'] === "true") ? 0 : 1),
+                'isAdmin' => htmlspecialchars(($_POST['isAdmin'] === "false") ? 0 : 1),
             );
             $this->userservice->updateUser($data);
             echo " <script type='text/javascript'>alert('Successfully updated user.');</script>";
