@@ -82,7 +82,7 @@ class MovieController
     public function updateMovie()
     {
         if (isset($_POST['updateMovieBtn'])) {
-                $ImageName = $this->movePicture($_FILES['imageSelector']);
+            $ImageName = $this->movePicture($_FILES['imageSelector']);
             
             $id = htmlspecialchars($_POST['editId']);
             $title = htmlspecialchars($_POST['editTitle']);
@@ -92,7 +92,12 @@ class MovieController
             $rating = htmlspecialchars($_POST['editRating']);
             $price = htmlspecialchars($_POST['editPrice']);
             $genre = htmlspecialchars($_POST['editGenre']);
-            $image = $ImageName;
+            if(!isset($_POST['imageSelector'])){
+                $image = $_POST['editImage'];
+            }else{
+                $image = $ImageName;
+            }
+           
 
             $this->movieservice->updateMovie($id, $title, $description, $genre, $rating, $dateProduced, $price, $director, $image);
             echo " <script type='text/javascript'>alert('Successfully updated movie.');</script>";

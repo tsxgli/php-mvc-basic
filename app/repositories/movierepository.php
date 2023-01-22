@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/repository.php';
+require_once __DIR__ . '/repository.php';
 require __DIR__ . '/../models/movie.php';
 
 class MovieRepository extends Repository
@@ -53,7 +53,7 @@ class MovieRepository extends Repository
         }
     }
 
-     function deleteMovie($id)
+    function deleteMovie($id)
     {
         try {
             $stmt = $this->connection->prepare("Delete from Movie where _id=:id");
@@ -64,7 +64,8 @@ class MovieRepository extends Repository
         }
     }
 
-     function updateMovie($id,$title,$description,$genre,$rating,$dateProduced,$price,$director,$image){
+    function updateMovie($id, $title, $description, $genre, $rating, $dateProduced, $price, $director, $image)
+    {
 
         try {
             $stmt = $this->connection->prepare("UPDATE Movie SET title = :title, description = :description, 
@@ -72,22 +73,23 @@ class MovieRepository extends Repository
                                     genre = :genre, image=:image,rating = :rating, price = :price WHERE _id = :id");
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':title', $title);
-            $stmt->bindParam(':description',$description);
+            $stmt->bindParam(':description', $description);
             $stmt->bindParam(':director', $director);
             $stmt->bindParam(':dateProduced', $dateProduced);
             $stmt->bindParam(':genre', $genre);
             $stmt->bindParam(':rating', $rating);
             $stmt->bindParam(':price', $price);
-            $stmt->bindParam(':image',$image);
+            $stmt->bindParam(':image', $image);
             $stmt->execute();
 
-           
+
         } catch (PDOException $e) {
-            echo "Something went wrong updating the movies: ".$e;
+            echo "Something went wrong updating the movies: " . $e;
         }
     }
 
-     function addMovie($data){
+    function addMovie($data)
+    {
         try {
             $stmt = $this->connection->prepare('INSERT INTO Movie (title, director,description, genre, dateProduced, price,image, stock,rating) 
                                                     VALUES ( :title, :director,:description, :genre, :dateProduced, :price,:image, :stock,:rating);');
@@ -98,7 +100,7 @@ class MovieRepository extends Repository
             $stmt->bindParam(':genre', $data['genre']);
             $stmt->bindParam(':dateProduced', $data['dateProduced']);
             $stmt->bindParam(':price', $data['price']);
-            $stmt->bindParam(':stock',$data['stock']);
+            $stmt->bindParam(':stock', $data['stock']);
             $stmt->bindParam(':rating', $data['rating']);
             $stmt->bindParam(':image', $data['image']);
             $stmt->execute();
@@ -106,5 +108,16 @@ class MovieRepository extends Repository
         } catch (PDOException $e) {
             echo "Adding movie failed: " . $e->getMessage();
         }
-     }
+    }
+
+    function updateStock($id)
+    {
+        try {
+            $stmt = $this->connection->prepare("UPDATE Movie SET stock = stock - 1  WHERE _id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();   
+        } catch (PDOException $e) {
+            echo "Something went wrong updating the stock: " . $e;
+        }
+    }
 }

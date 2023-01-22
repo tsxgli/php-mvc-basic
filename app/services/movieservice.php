@@ -27,4 +27,7 @@ class MovieService {
     public function addMovie($data){
         $this->repository->addMovie($data);
     }
+    public function updateStock($id){
+        $this->repository->updateStock($id);
+    }
 }

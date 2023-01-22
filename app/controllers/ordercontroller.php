@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/../services/orderservice.php';
+require __DIR__ . '/../services/movieservice.php';
 require __DIR__ . '/../models/order.php';
 use PHPMailer\PHPMailer\PHPMailer;
 require __DIR__ . '/../vendor/autoload.php';
@@ -12,6 +13,7 @@ class OrderController
     function __construct()
     {
         $this->orderService = new OrderService();
+        $this->movieService = new MovieService();
     }
 
     public function paymentSuccessful()
@@ -36,6 +38,7 @@ class OrderController
             $this->orderService->insertOrder($order);
 
             $this->sendEmail($checkoutEmail);
+            $this->movieService->updateStock($order->getMovieID());
             require __DIR__ . '/../views/order/paymentSuccessful.php';
         }
     }
@@ -79,9 +82,7 @@ class OrderController
         }
 
     }
-    public function editStock(){
-        return $this->
-    }
+
 }
 
 ?>

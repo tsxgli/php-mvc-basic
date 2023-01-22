@@ -15,7 +15,7 @@ include __DIR__ . '/../header.php';
                     <form class="was-validated" method="POST" action="/admin/updatemovie" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="imageSelector">Choose file</label>
-                            <input type="file" class="form-control-file" name="imageSelector" value="<?php echo $model[0]->getImage(); ?>" id="imageSelector">
+                            <input type="file" class="form-control-file" name="imageSelector" value="echo" id="imageSelector" >
                         </div>
                         <div class="form-group">
                             <input hidden type="text" name="editId" value="<?php echo $model[0]->get_id(); ?>">
