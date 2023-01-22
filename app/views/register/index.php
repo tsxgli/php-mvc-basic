@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form class="needs-validation"method="POST">
+    <form class="needs-validation" method="POST">
         <section class="h-100 bg-dark">s
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -45,7 +45,7 @@
                                             <div class="form-outline mb-4">
                                                 <input type="text" id="postcodeRegister"
                                                     class="form-control form-control-lg" name="postcodeRegister"
-                                                    required placeholder="Enter your post code"/>
+                                                    required placeholder="Enter your post code" />
                                                 <label class="form-label" for="postcodeInput">Post Code</label>
                                             </div>
                                             <div class="form-outline mb-4">
@@ -66,8 +66,10 @@
                                                         id="passwordInput" name="passwordRegister" required
                                                         placeholder="Enter your password">
                                                     <div class="input-group-append">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            id="passwordToggleButton">Show password</button>
+                                                        <button type="button" class="btn btn-secondary ml-2"
+                                                            id="passwordToggleButton">
+                                                            Show password
+                                                        </button>
                                                     </div>
                                                 </div>
                                                 <label class="form-label" for="passwordInput">Password</label>
@@ -78,7 +80,7 @@
                                                     required placeholder="Enter your birthdate" />
                                                 <label class="form-label" for="birthdateInput">BirthDate</label>
                                             </div>
-                                            
+
                                         </div>
 
                                         <div class="d-flex justify-content-end pt-3">
@@ -110,6 +112,7 @@
             </div>
         </section>
     </form>
+    <script src="/javascript/buttons.js"></script>
 </body>
 
 </html>

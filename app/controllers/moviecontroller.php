@@ -1,7 +1,5 @@
 <?php
 require __DIR__ . '/../services/movieservice.php';
-
-
 class MovieController
 {
     private $movieservice;
