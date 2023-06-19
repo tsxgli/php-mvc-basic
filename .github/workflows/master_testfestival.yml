@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'testfestival'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4D520760A3594C98BCEF50FFD176E287 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BD39431B37B1408E97D752F1B4C512DF }}
           package: .
