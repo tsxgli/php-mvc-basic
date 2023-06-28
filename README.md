@@ -3,12 +3,12 @@ Movie website made with PHP mvc framework, with a MySQL database
 
 User accounts:
 
-ADMIN
-admin@email.com
-root
+### ADMIN
+Email: admin@email.com
+Password: root
  
-NORMAL USER
-phil@email.com
-1234
+### NORMAL USER
+Email: phil@email.com
+Password: 1234
 
-website url: https://wmovies2.000webhostapp.com/
+Online host url: https://wmovies2.000webhostapp.com/
