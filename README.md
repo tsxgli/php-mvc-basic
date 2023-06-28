@@ -1,4 +1,4 @@
-#Description
+# Description
 Movie website made with PHP mvc framework, with a MySQL database
 
 User accounts:
